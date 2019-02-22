@@ -1,0 +1,20 @@
+/**
+* @file:   person.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+syntax = "proto3";
+
+package proto;
+
+message PERSON{
+    /** 唯一标识 */
+    uint32 id = 1;
+    /** 姓名 */
+    string username = 2;
+}
+
+message PERSON_ARRAY {
+    repeated PERSON items = 1;
+}
