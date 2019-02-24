@@ -93,7 +93,8 @@ LOG_ERROR = LogHelp.get_logger().error
 
 proto_path = 'proto/'
 txt_path = 'txt'
-data_path = 'bytes'
+data_path = 'protodata'
+csharp_path = 'csharp'
 
 
 class Sheetinterpreter:
@@ -129,6 +130,9 @@ class Sheetinterpreter:
 
         if not os.path.exists(data_path):
             os.mkdir(data_path)
+
+        if not os.path.exists(csharp_path):
+            os.mkdir(csharp_path)
 
         self._pb_file_name = sheet_name.lower() + ".proto"
 
@@ -264,8 +268,7 @@ class Sheetinterpreter:
         """生成PB文件的描述信息"""
         self._output.append("/**\n")
         self._output.append("* @file:   " + self._pb_file_name + "\n")
-        self._output.append("* @author: jameyli <jameyli AT tencent DOT com>\n")
-        self._output.append("* @brief:  这个文件是通过工具自动生成的，建议不要手动修改\n")
+        self._output.append("* @说明:  这个文件是通过工具自动生成的，建议不要手动修改\n")
         self._output.append("*/\n")
         self._output.append("\n")
         self._output.append("syntax = \"proto3\";\n")
@@ -626,6 +629,12 @@ if __name__ == '__main__':
             print("生成%s.bytes失败:%s!!!" % (sheet_name, parser_error))
             sys.exit(-4)
             raise
+
+        try:
+            command = "protoc --proto_path=./ %s --csharp_out=./csharp/" % (proto_path + sheet_name.lower() + '.proto')
+            os.system(command)
+        except BaseException as e:
+            print("protoc csharp failed:%s!" % e)
 
         print("编译%s成功！" % sheet_name)
 

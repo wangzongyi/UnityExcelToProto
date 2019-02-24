@@ -1,7 +1,6 @@
 /**
 * @file:   goods_info.proto
-* @author: jameyli <jameyli AT tencent DOT com>
-* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+* @说明:  这个文件是通过工具自动生成的，建议不要手动修改
 */
 
 syntax = "proto3";
