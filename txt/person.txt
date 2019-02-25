@@ -1,8 +1,14 @@
 items {
-  id: 1
-  username: "hehe"
+  key: "1.0"
+  value {
+    id: "1.0"
+    username: "hehe"
+  }
 }
 items {
-  id: 2
-  username: "shushu"
+  key: "2.0"
+  value {
+    id: "2.0"
+    username: "shushu"
+  }
 }

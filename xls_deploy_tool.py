@@ -329,8 +329,9 @@ class Sheetinterpreter:
 
     def layout_array(self):
         """输出数组定义"""
-        self._output.append("message " + self._sheet_name + "_ARRAY {\n")
-        self._output.append("    repeated " + self._sheet_name + " items = 1;\n}\n")
+        field_type = str(self._sheet.cell_value(FIELD_TYPE_ROW, 0)).strip()
+        self._output.append("message " + self._sheet_name + "Map {\n")
+        self._output.append("    map<%s, %s> " % (field_type, self._sheet_name) + "items = 1;\n}\n", )
 
     def write_to_file(self):
         """输出到文件"""
@@ -366,7 +367,7 @@ class DataParser:
         """对外的接口:解析数据"""
         LOG_INFO("begin parse, row_count = %d, col_count = %d", self._row_count, self._col_count)
 
-        item_array = getattr(self._module, self._sheet_name + '_ARRAY')()
+        item_array = getattr(self._module, self._sheet_name + 'Map')()
 
         # 先找到定义ID的列
         id_col = 0
@@ -377,13 +378,20 @@ class DataParser:
             else:
                 break
 
+        field_type = str(self._sheet.cell_value(FIELD_TYPE_ROW, 0)).strip()
+
+        if field_type.__contains__('int'):
+            field_type = int
+        else:
+            field_type = str
+
         for self._row in range(4, self._row_count):
             # 如果 id 是 空 直接跳过改行
             info_id = str(self._sheet.cell_value(self._row, id_col)).strip()
             if info_id == "":
                 LOG_WARN("%d is None", self._row)
                 continue
-            item = item_array.items.add()
+            item = item_array.items[info_id if field_type == str else field_type(float(info_id))]
             try:
                 self.parse_line(item)
             except BaseException as e:
@@ -548,7 +556,7 @@ class DataParser:
                 else:
                     return float(field_value)
             elif field_type == "string":
-                field_value = field_value
+                field_value = str(field_value)
                 if len(field_value) <= 0:
                     return None
                 else:

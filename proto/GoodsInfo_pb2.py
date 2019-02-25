@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='proto',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x15proto/GoodsInfo.proto\x12\x05proto\"\xdb\x06\n\tGoodsInfo\x12\x10\n\x08goods_id\x18\x01 \x01(\r\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0b\n\x03sex\x18\x03 \x01(\r\x12\x13\n\x0blevel_limit\x18\x04 \x01(\r\x12\x16\n\x0e\x63lub_vip_level\x18\x05 \x01(\x05\x12\x0c\n\x04qb_2\x18\x06 \x01(\x05\x12\x14\n\x0c\x63onsume_type\x18\x07 \x01(\r\x12\x11\n\ttime_unit\x18\x08 \x01(\r\x12\x11\n\tis_online\x18\t \x01(\r\x12\x0f\n\x07\x63\x61n_buy\x18\n \x01(\r\x12\x14\n\x0c\x63\x61n_recharge\x18\x0b \x01(\r\x12\x13\n\x0bonline_time\x18\x0c \x01(\t\x12\x14\n\x0coffline_time\x18\r \x01(\t\x12\x1f\n\x17privileged_plat_id_list\x18\x0e \x03(\r\x12!\n\x19privileged_plat_is_online\x18\x0f \x01(\r\x12\x1f\n\x17privileged_plat_can_buy\x18\x10 \x01(\r\x12$\n\x1cprivileged_plat_can_recharge\x18\x11 \x01(\r\x12\x15\n\rpayment_terms\x18\x12 \x01(\r\x12\x12\n\nvalid_time\x18\x13 \x01(\t\x12\x15\n\rsort_priority\x18\x14 \x01(\r\x12\x13\n\x0bsuit_number\x18\x15 \x01(\x05\x12\x19\n\x11\x62\x61g_sort_priority\x18\x16 \x01(\r\x12\x0e\n\x06status\x18\x17 \x01(\r\x12\x0c\n\x04rank\x18\x18 \x01(\r\x12\x16\n\x0eprice_discount\x18\x19 \x01(\r\x12\x14\n\x0cvip_discount\x18\x1a \x01(\r\x12+\n\x0bprice_table\x18\x1b \x03(\x0b\x32\x16.proto.GoodsInfo.Price\x12.\n\ngoods_attr\x18\x1c \x03(\x0b\x32\x1a.proto.GoodsInfo.GoodsAttr\x12\x13\n\x0b\x64\x65scription\x18\x1d \x01(\t\x12\x10\n\x08limit_id\x18\x1e \x01(\r\x12\x13\n\x0bsubSystemId\x18\x1f \x01(\t\x1a\x42\n\x05Price\x12\x10\n\x08price_dq\x18\x01 \x01(\r\x12\x12\n\nprice_gold\x18\x02 \x01(\r\x12\x13\n\x0bprice_value\x18\x03 \x01(\r\x1a\x32\n\tGoodsAttr\x12\x11\n\tattr_type\x18\x01 \x01(\r\x12\x12\n\nattr_value\x18\x02 \x01(\r\"2\n\x0fGoodsInfo_ARRAY\x12\x1f\n\x05items\x18\x01 \x03(\x0b\x32\x10.proto.GoodsInfob\x06proto3')
+  serialized_pb=_b('\n\x15proto/GoodsInfo.proto\x12\x05proto\"\xdb\x06\n\tGoodsInfo\x12\x10\n\x08goods_id\x18\x01 \x01(\r\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0b\n\x03sex\x18\x03 \x01(\r\x12\x13\n\x0blevel_limit\x18\x04 \x01(\r\x12\x16\n\x0e\x63lub_vip_level\x18\x05 \x01(\x05\x12\x0c\n\x04qb_2\x18\x06 \x01(\x05\x12\x14\n\x0c\x63onsume_type\x18\x07 \x01(\r\x12\x11\n\ttime_unit\x18\x08 \x01(\r\x12\x11\n\tis_online\x18\t \x01(\r\x12\x0f\n\x07\x63\x61n_buy\x18\n \x01(\r\x12\x14\n\x0c\x63\x61n_recharge\x18\x0b \x01(\r\x12\x13\n\x0bonline_time\x18\x0c \x01(\t\x12\x14\n\x0coffline_time\x18\r \x01(\t\x12\x1f\n\x17privileged_plat_id_list\x18\x0e \x03(\r\x12!\n\x19privileged_plat_is_online\x18\x0f \x01(\r\x12\x1f\n\x17privileged_plat_can_buy\x18\x10 \x01(\r\x12$\n\x1cprivileged_plat_can_recharge\x18\x11 \x01(\r\x12\x15\n\rpayment_terms\x18\x12 \x01(\r\x12\x12\n\nvalid_time\x18\x13 \x01(\t\x12\x15\n\rsort_priority\x18\x14 \x01(\r\x12\x13\n\x0bsuit_number\x18\x15 \x01(\x05\x12\x19\n\x11\x62\x61g_sort_priority\x18\x16 \x01(\r\x12\x0e\n\x06status\x18\x17 \x01(\r\x12\x0c\n\x04rank\x18\x18 \x01(\r\x12\x16\n\x0eprice_discount\x18\x19 \x01(\r\x12\x14\n\x0cvip_discount\x18\x1a \x01(\r\x12+\n\x0bprice_table\x18\x1b \x03(\x0b\x32\x16.proto.GoodsInfo.Price\x12.\n\ngoods_attr\x18\x1c \x03(\x0b\x32\x1a.proto.GoodsInfo.GoodsAttr\x12\x13\n\x0b\x64\x65scription\x18\x1d \x01(\t\x12\x10\n\x08limit_id\x18\x1e \x01(\r\x12\x13\n\x0bsubSystemId\x18\x1f \x01(\t\x1a\x42\n\x05Price\x12\x10\n\x08price_dq\x18\x01 \x01(\r\x12\x12\n\nprice_gold\x18\x02 \x01(\r\x12\x13\n\x0bprice_value\x18\x03 \x01(\r\x1a\x32\n\tGoodsAttr\x12\x11\n\tattr_type\x18\x01 \x01(\r\x12\x12\n\nattr_value\x18\x02 \x01(\r\"}\n\x0cGoodsInfoMap\x12-\n\x05items\x18\x01 \x03(\x0b\x32\x1e.proto.GoodsInfoMap.ItemsEntry\x1a>\n\nItemsEntry\x12\x0b\n\x03key\x18\x01 \x01(\r\x12\x1f\n\x05value\x18\x02 \x01(\x0b\x32\x10.proto.GoodsInfo:\x02\x38\x01\x62\x06proto3')
 )
 
 
@@ -348,17 +348,24 @@ _GOODSINFO = _descriptor.Descriptor(
 )
 
 
-_GOODSINFO_ARRAY = _descriptor.Descriptor(
-  name='GoodsInfo_ARRAY',
-  full_name='proto.GoodsInfo_ARRAY',
+_GOODSINFOMAP_ITEMSENTRY = _descriptor.Descriptor(
+  name='ItemsEntry',
+  full_name='proto.GoodsInfoMap.ItemsEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='items', full_name='proto.GoodsInfo_ARRAY.items', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='key', full_name='proto.GoodsInfoMap.ItemsEntry.key', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='proto.GoodsInfoMap.ItemsEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -368,6 +375,36 @@ _GOODSINFO_ARRAY = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
+  serialized_options=_b('8\001'),
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=957,
+  serialized_end=1019,
+)
+
+_GOODSINFOMAP = _descriptor.Descriptor(
+  name='GoodsInfoMap',
+  full_name='proto.GoodsInfoMap',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='items', full_name='proto.GoodsInfoMap.items', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_GOODSINFOMAP_ITEMSENTRY, ],
+  enum_types=[
+  ],
   serialized_options=None,
   is_extendable=False,
   syntax='proto3',
@@ -375,16 +412,18 @@ _GOODSINFO_ARRAY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=894,
-  serialized_end=944,
+  serialized_end=1019,
 )
 
 _GOODSINFO_PRICE.containing_type = _GOODSINFO
 _GOODSINFO_GOODSATTR.containing_type = _GOODSINFO
 _GOODSINFO.fields_by_name['price_table'].message_type = _GOODSINFO_PRICE
 _GOODSINFO.fields_by_name['goods_attr'].message_type = _GOODSINFO_GOODSATTR
-_GOODSINFO_ARRAY.fields_by_name['items'].message_type = _GOODSINFO
+_GOODSINFOMAP_ITEMSENTRY.fields_by_name['value'].message_type = _GOODSINFO
+_GOODSINFOMAP_ITEMSENTRY.containing_type = _GOODSINFOMAP
+_GOODSINFOMAP.fields_by_name['items'].message_type = _GOODSINFOMAP_ITEMSENTRY
 DESCRIPTOR.message_types_by_name['GoodsInfo'] = _GOODSINFO
-DESCRIPTOR.message_types_by_name['GoodsInfo_ARRAY'] = _GOODSINFO_ARRAY
+DESCRIPTOR.message_types_by_name['GoodsInfoMap'] = _GOODSINFOMAP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 GoodsInfo = _reflection.GeneratedProtocolMessageType('GoodsInfo', (_message.Message,), dict(
@@ -410,12 +449,21 @@ _sym_db.RegisterMessage(GoodsInfo)
 _sym_db.RegisterMessage(GoodsInfo.Price)
 _sym_db.RegisterMessage(GoodsInfo.GoodsAttr)
 
-GoodsInfo_ARRAY = _reflection.GeneratedProtocolMessageType('GoodsInfo_ARRAY', (_message.Message,), dict(
-  DESCRIPTOR = _GOODSINFO_ARRAY,
+GoodsInfoMap = _reflection.GeneratedProtocolMessageType('GoodsInfoMap', (_message.Message,), dict(
+
+  ItemsEntry = _reflection.GeneratedProtocolMessageType('ItemsEntry', (_message.Message,), dict(
+    DESCRIPTOR = _GOODSINFOMAP_ITEMSENTRY,
+    __module__ = 'proto.GoodsInfo_pb2'
+    # @@protoc_insertion_point(class_scope:proto.GoodsInfoMap.ItemsEntry)
+    ))
+  ,
+  DESCRIPTOR = _GOODSINFOMAP,
   __module__ = 'proto.GoodsInfo_pb2'
-  # @@protoc_insertion_point(class_scope:proto.GoodsInfo_ARRAY)
+  # @@protoc_insertion_point(class_scope:proto.GoodsInfoMap)
   ))
-_sym_db.RegisterMessage(GoodsInfo_ARRAY)
+_sym_db.RegisterMessage(GoodsInfoMap)
+_sym_db.RegisterMessage(GoodsInfoMap.ItemsEntry)
 
 
+_GOODSINFOMAP_ITEMSENTRY._options = None
 # @@protoc_insertion_point(module_scope)

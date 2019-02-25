@@ -160,6 +160,6 @@ message GoodsInfo{
     string subSystemId = 31;
 }
 
-message GoodsInfo_ARRAY {
-    repeated GoodsInfo items = 1;
+message GoodsInfoMap {
+    map<uint32, GoodsInfo> items = 1;
 }

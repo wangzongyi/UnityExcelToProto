@@ -43,15 +43,16 @@ namespace Proto {
             "cmlwdGlvbhgdIAEoCRIQCghsaW1pdF9pZBgeIAEoDRITCgtzdWJTeXN0ZW1J",
             "ZBgfIAEoCRpCCgVQcmljZRIQCghwcmljZV9kcRgBIAEoDRISCgpwcmljZV9n",
             "b2xkGAIgASgNEhMKC3ByaWNlX3ZhbHVlGAMgASgNGjIKCUdvb2RzQXR0chIR",
-            "CglhdHRyX3R5cGUYASABKA0SEgoKYXR0cl92YWx1ZRgCIAEoDSIyCg9Hb29k",
-            "c0luZm9fQVJSQVkSHwoFaXRlbXMYASADKAsyEC5wcm90by5Hb29kc0luZm9i",
-            "BnByb3RvMw=="));
+            "CglhdHRyX3R5cGUYASABKA0SEgoKYXR0cl92YWx1ZRgCIAEoDSJ9CgxHb29k",
+            "c0luZm9NYXASLQoFaXRlbXMYASADKAsyHi5wcm90by5Hb29kc0luZm9NYXAu",
+            "SXRlbXNFbnRyeRo+CgpJdGVtc0VudHJ5EgsKA2tleRgBIAEoDRIfCgV2YWx1",
+            "ZRgCIAEoCzIQLnByb3RvLkdvb2RzSW5mbzoCOAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.GoodsInfo), global::Proto.GoodsInfo.Parser, new[]{ "GoodsId", "Name", "Sex", "LevelLimit", "ClubVipLevel", "Qb2", "ConsumeType", "TimeUnit", "IsOnline", "CanBuy", "CanRecharge", "OnlineTime", "OfflineTime", "PrivilegedPlatIdList", "PrivilegedPlatIsOnline", "PrivilegedPlatCanBuy", "PrivilegedPlatCanRecharge", "PaymentTerms", "ValidTime", "SortPriority", "SuitNumber", "BagSortPriority", "Status", "Rank", "PriceDiscount", "VipDiscount", "PriceTable", "GoodsAttr", "Description", "LimitId", "SubSystemId" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Proto.GoodsInfo.Types.Price), global::Proto.GoodsInfo.Types.Price.Parser, new[]{ "PriceDq", "PriceGold", "PriceValue" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.GoodsInfo.Types.GoodsAttr), global::Proto.GoodsInfo.Types.GoodsAttr.Parser, new[]{ "AttrType", "AttrValue" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.GoodsInfo_ARRAY), global::Proto.GoodsInfo_ARRAY.Parser, new[]{ "Items" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.GoodsInfoMap), global::Proto.GoodsInfoMap.Parser, new[]{ "Items" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
@@ -1504,11 +1505,11 @@ namespace Proto {
 
   }
 
-  public sealed partial class GoodsInfo_ARRAY : pb::IMessage<GoodsInfo_ARRAY> {
-    private static readonly pb::MessageParser<GoodsInfo_ARRAY> _parser = new pb::MessageParser<GoodsInfo_ARRAY>(() => new GoodsInfo_ARRAY());
+  public sealed partial class GoodsInfoMap : pb::IMessage<GoodsInfoMap> {
+    private static readonly pb::MessageParser<GoodsInfoMap> _parser = new pb::MessageParser<GoodsInfoMap>(() => new GoodsInfoMap());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<GoodsInfo_ARRAY> Parser { get { return _parser; } }
+    public static pb::MessageParser<GoodsInfoMap> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1521,54 +1522,54 @@ namespace Proto {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GoodsInfo_ARRAY() {
+    public GoodsInfoMap() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GoodsInfo_ARRAY(GoodsInfo_ARRAY other) : this() {
+    public GoodsInfoMap(GoodsInfoMap other) : this() {
       items_ = other.items_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GoodsInfo_ARRAY Clone() {
-      return new GoodsInfo_ARRAY(this);
+    public GoodsInfoMap Clone() {
+      return new GoodsInfoMap(this);
     }
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Proto.GoodsInfo> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::Proto.GoodsInfo.Parser);
-    private readonly pbc::RepeatedField<global::Proto.GoodsInfo> items_ = new pbc::RepeatedField<global::Proto.GoodsInfo>();
+    private static readonly pbc::MapField<uint, global::Proto.GoodsInfo>.Codec _map_items_codec
+        = new pbc::MapField<uint, global::Proto.GoodsInfo>.Codec(pb::FieldCodec.ForUInt32(8), pb::FieldCodec.ForMessage(18, global::Proto.GoodsInfo.Parser), 10);
+    private readonly pbc::MapField<uint, global::Proto.GoodsInfo> items_ = new pbc::MapField<uint, global::Proto.GoodsInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Proto.GoodsInfo> Items {
+    public pbc::MapField<uint, global::Proto.GoodsInfo> Items {
       get { return items_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as GoodsInfo_ARRAY);
+      return Equals(other as GoodsInfoMap);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(GoodsInfo_ARRAY other) {
+    public bool Equals(GoodsInfoMap other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!items_.Equals(other.items_)) return false;
+      if (!Items.Equals(other.Items)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= items_.GetHashCode();
+      hash ^= Items.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1582,7 +1583,7 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      items_.WriteTo(output, _repeated_items_codec);
+      items_.WriteTo(output, _map_items_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1591,7 +1592,7 @@ namespace Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += items_.CalculateSize(_repeated_items_codec);
+      size += items_.CalculateSize(_map_items_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1599,7 +1600,7 @@ namespace Proto {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(GoodsInfo_ARRAY other) {
+    public void MergeFrom(GoodsInfoMap other) {
       if (other == null) {
         return;
       }
@@ -1618,7 +1619,7 @@ namespace Proto {
             }
             break;
           case 10: {
-            items_.AddEntriesFrom(input, _repeated_items_codec);
+            items_.AddEntriesFrom(input, _map_items_codec);
             break;
           }
         }

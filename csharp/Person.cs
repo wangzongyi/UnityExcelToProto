@@ -25,13 +25,15 @@ namespace Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChJwcm90by9QZXJzb24ucHJvdG8SBXByb3RvIiYKBlBlcnNvbhIKCgJpZBgB",
-            "IAEoDRIQCgh1c2VybmFtZRgCIAEoCSIsCgxQZXJzb25fQVJSQVkSHAoFaXRl",
-            "bXMYASADKAsyDS5wcm90by5QZXJzb25iBnByb3RvMw=="));
+            "IAEoCRIQCgh1c2VybmFtZRgCIAEoCSJ0CglQZXJzb25NYXASKgoFaXRlbXMY",
+            "ASADKAsyGy5wcm90by5QZXJzb25NYXAuSXRlbXNFbnRyeRo7CgpJdGVtc0Vu",
+            "dHJ5EgsKA2tleRgBIAEoCRIcCgV2YWx1ZRgCIAEoCzINLnByb3RvLlBlcnNv",
+            "bjoCOAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Person), global::Proto.Person.Parser, new[]{ "Id", "Username" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Person_ARRAY), global::Proto.Person_ARRAY.Parser, new[]{ "Items" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.PersonMap), global::Proto.PersonMap.Parser, new[]{ "Items" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
@@ -75,15 +77,15 @@ namespace Proto {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private uint id_;
+    private string id_ = "";
     /// <summary>
     ///* Œ®“ª±Í ∂ 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Id {
+    public string Id {
       get { return id_; }
       set {
-        id_ = value;
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -122,7 +124,7 @@ namespace Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id != 0) hash ^= Id.GetHashCode();
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -137,9 +139,9 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Id);
+      if (Id.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Id);
       }
       if (Username.Length != 0) {
         output.WriteRawTag(18);
@@ -153,8 +155,8 @@ namespace Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Id != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
       }
       if (Username.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
@@ -170,7 +172,7 @@ namespace Proto {
       if (other == null) {
         return;
       }
-      if (other.Id != 0) {
+      if (other.Id.Length != 0) {
         Id = other.Id;
       }
       if (other.Username.Length != 0) {
@@ -189,8 +191,8 @@ namespace Proto {
               return;
             }
             break;
-          case 8: {
-            Id = input.ReadUInt32();
+          case 10: {
+            Id = input.ReadString();
             break;
           }
           case 18: {
@@ -203,11 +205,11 @@ namespace Proto {
 
   }
 
-  public sealed partial class Person_ARRAY : pb::IMessage<Person_ARRAY> {
-    private static readonly pb::MessageParser<Person_ARRAY> _parser = new pb::MessageParser<Person_ARRAY>(() => new Person_ARRAY());
+  public sealed partial class PersonMap : pb::IMessage<PersonMap> {
+    private static readonly pb::MessageParser<PersonMap> _parser = new pb::MessageParser<PersonMap>(() => new PersonMap());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Person_ARRAY> Parser { get { return _parser; } }
+    public static pb::MessageParser<PersonMap> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -220,54 +222,54 @@ namespace Proto {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Person_ARRAY() {
+    public PersonMap() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Person_ARRAY(Person_ARRAY other) : this() {
+    public PersonMap(PersonMap other) : this() {
       items_ = other.items_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Person_ARRAY Clone() {
-      return new Person_ARRAY(this);
+    public PersonMap Clone() {
+      return new PersonMap(this);
     }
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Proto.Person> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::Proto.Person.Parser);
-    private readonly pbc::RepeatedField<global::Proto.Person> items_ = new pbc::RepeatedField<global::Proto.Person>();
+    private static readonly pbc::MapField<string, global::Proto.Person>.Codec _map_items_codec
+        = new pbc::MapField<string, global::Proto.Person>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::Proto.Person.Parser), 10);
+    private readonly pbc::MapField<string, global::Proto.Person> items_ = new pbc::MapField<string, global::Proto.Person>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Proto.Person> Items {
+    public pbc::MapField<string, global::Proto.Person> Items {
       get { return items_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Person_ARRAY);
+      return Equals(other as PersonMap);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Person_ARRAY other) {
+    public bool Equals(PersonMap other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!items_.Equals(other.items_)) return false;
+      if (!Items.Equals(other.Items)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= items_.GetHashCode();
+      hash ^= Items.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -281,7 +283,7 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      items_.WriteTo(output, _repeated_items_codec);
+      items_.WriteTo(output, _map_items_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -290,7 +292,7 @@ namespace Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += items_.CalculateSize(_repeated_items_codec);
+      size += items_.CalculateSize(_map_items_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -298,7 +300,7 @@ namespace Proto {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Person_ARRAY other) {
+    public void MergeFrom(PersonMap other) {
       if (other == null) {
         return;
       }
@@ -317,7 +319,7 @@ namespace Proto {
             }
             break;
           case 10: {
-            items_.AddEntriesFrom(input, _repeated_items_codec);
+            items_.AddEntriesFrom(input, _map_items_codec);
             break;
           }
         }
