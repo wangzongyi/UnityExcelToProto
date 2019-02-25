@@ -19,7 +19,7 @@
 @EXIT
 )
 
-@CALL python xls_deploy_tool.py xls/goods_info.xls
+@CALL python xls_deploy_tool.py xls/GoodsInfo.xls
 
 @%CSC6% /out:client-proto.dll /t:library /r:Google.Protobuf.dll /debug- /optimize+ csharp\*.cs
 

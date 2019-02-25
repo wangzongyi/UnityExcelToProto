@@ -134,7 +134,7 @@ class Sheetinterpreter:
         if not os.path.exists(csharp_path):
             os.mkdir(csharp_path)
 
-        self._pb_file_name = sheet_name.lower() + ".proto"
+        self._pb_file_name = sheet_name + ".proto"
 
     def interpreter(self):
         """对外的接口"""
@@ -353,7 +353,7 @@ class DataParser:
         self._col = 0
 
         try:
-            self._module_name = self._sheet_name.lower() + "_pb2"
+            self._module_name = self._sheet_name + "_pb2"
             sys.path.append(os.getcwd())
             sys.path.append(os.getcwd() + '/' + proto_path)
             exec('from ' + self._module_name + ' import *')
@@ -601,7 +601,7 @@ if __name__ == '__main__':
     '''
 
     if len(sys.argv) < 2:
-        print('没有传入用于编译的表格名')
+        print('没有传入用于编译的Excel名')
         sys.exit(-1)
 
     xls_file_path = sys.argv[1]
@@ -613,7 +613,7 @@ if __name__ == '__main__':
         raise
 
     for sheet_name in workbook.sheet_names():
-        if not sheet_name.isupper():
+        if sheet_name.startswith('#'):
             break
 
         sheet = workbook.sheet_by_name(sheet_name)
@@ -635,7 +635,7 @@ if __name__ == '__main__':
             raise
 
         try:
-            command = "protoc --proto_path=./ %s --csharp_out=./csharp/" % (proto_path + sheet_name.lower() + '.proto')
+            command = "protoc --proto_path=./ %s --csharp_out=./csharp/" % (proto_path + sheet_name + '.proto')
             os.system(command)
         except BaseException as e:
             print("protoc csharp failed:%s!" % e)

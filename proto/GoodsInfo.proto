@@ -1,5 +1,5 @@
 /**
-* @file:   goods_info.proto
+* @file:   GoodsInfo.proto
 * @说明:  这个文件是通过工具自动生成的，建议不要手动修改
 */
 
@@ -7,7 +7,7 @@ syntax = "proto3";
 
 package proto;
 
-message GOODS_INFO{
+message GoodsInfo{
     /** 商品ID */
     uint32 goods_id = 1;
     /** 商品名 */
@@ -160,6 +160,6 @@ message GOODS_INFO{
     bytes subSystemId = 31;
 }
 
-message GOODS_INFO_ARRAY {
-    repeated GOODS_INFO items = 1;
+message GoodsInfo_ARRAY {
+    repeated GoodsInfo items = 1;
 }
