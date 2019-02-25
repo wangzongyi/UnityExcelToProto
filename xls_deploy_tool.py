@@ -600,11 +600,15 @@ if __name__ == '__main__':
     xls_file_path = sys.argv[2]
     '''
 
-    xls_file_path = "xls/goods_info.xls"
+    if len(sys.argv) < 2:
+        print('没有传入用于编译的表格名')
+        sys.exit(-1)
+
+    xls_file_path = sys.argv[1]
     try:
         workbook = xlrd.open_workbook(xls_file_path)
     except BaseException as open_workbook_error:
-        print("Open Excel Error:%s!!!" % open_workbook_error)
+        print("打开Excel失败:%s!!!" % open_workbook_error)
         sys.exit(-2)
         raise
 
