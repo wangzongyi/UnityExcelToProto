@@ -11,7 +11,7 @@ message GoodsInfo{
     /** 商品ID */
     uint32 goods_id = 1;
     /** 商品名 */
-    bytes name = 2;
+    string name = 2;
     /** 性别
         不限制：100
         male：101
@@ -49,14 +49,14 @@ message GoodsInfo{
         1 是
     */
     uint32 can_recharge = 11;
-    bytes online_time = 12;
+    string online_time = 12;
     /** 下架时间
         (YYYY-MM-DD HH:MM:SS)
         
         1.不填表示用不下架
         2.下架的最终确定需结合“有效时间”、“是否上架”
     */
-    bytes offline_time = 13;
+    string offline_time = 13;
     repeated uint32 privileged_plat_id_list = 14;
     /** 是否商城上架显示
         （根据需要配置上下架时间）
@@ -87,7 +87,7 @@ message GoodsInfo{
         格式如下，日期和时间中间是空格，不是换行！
         2011-10-10 00:00:00
     */
-    bytes valid_time = 19;
+    string valid_time = 19;
     /** 排序优先级
         
         1~? 优先级递减
@@ -150,14 +150,14 @@ message GoodsInfo{
 
     repeated GoodsAttr goods_attr = 28;
     /** 商品详情 */
-    bytes description = 29;
+    string description = 29;
     /** 商城购买的限制id
         详细配置在
         limitation表
     */
     uint32 limit_id = 30;
     /** 使用 跳转id */
-    bytes subSystemId = 31;
+    string subSystemId = 31;
 }
 
 message GoodsInfo_ARRAY {

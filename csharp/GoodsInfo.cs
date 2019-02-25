@@ -25,23 +25,23 @@ namespace Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVwcm90by9Hb29kc0luZm8ucHJvdG8SBXByb3RvItsGCglHb29kc0luZm8S",
-            "EAoIZ29vZHNfaWQYASABKA0SDAoEbmFtZRgCIAEoDBILCgNzZXgYAyABKA0S",
+            "EAoIZ29vZHNfaWQYASABKA0SDAoEbmFtZRgCIAEoCRILCgNzZXgYAyABKA0S",
             "EwoLbGV2ZWxfbGltaXQYBCABKA0SFgoOY2x1Yl92aXBfbGV2ZWwYBSABKAUS",
             "DAoEcWJfMhgGIAEoBRIUCgxjb25zdW1lX3R5cGUYByABKA0SEQoJdGltZV91",
             "bml0GAggASgNEhEKCWlzX29ubGluZRgJIAEoDRIPCgdjYW5fYnV5GAogASgN",
-            "EhQKDGNhbl9yZWNoYXJnZRgLIAEoDRITCgtvbmxpbmVfdGltZRgMIAEoDBIU",
-            "CgxvZmZsaW5lX3RpbWUYDSABKAwSHwoXcHJpdmlsZWdlZF9wbGF0X2lkX2xp",
+            "EhQKDGNhbl9yZWNoYXJnZRgLIAEoDRITCgtvbmxpbmVfdGltZRgMIAEoCRIU",
+            "CgxvZmZsaW5lX3RpbWUYDSABKAkSHwoXcHJpdmlsZWdlZF9wbGF0X2lkX2xp",
             "c3QYDiADKA0SIQoZcHJpdmlsZWdlZF9wbGF0X2lzX29ubGluZRgPIAEoDRIf",
             "Chdwcml2aWxlZ2VkX3BsYXRfY2FuX2J1eRgQIAEoDRIkChxwcml2aWxlZ2Vk",
             "X3BsYXRfY2FuX3JlY2hhcmdlGBEgASgNEhUKDXBheW1lbnRfdGVybXMYEiAB",
-            "KA0SEgoKdmFsaWRfdGltZRgTIAEoDBIVCg1zb3J0X3ByaW9yaXR5GBQgASgN",
+            "KA0SEgoKdmFsaWRfdGltZRgTIAEoCRIVCg1zb3J0X3ByaW9yaXR5GBQgASgN",
             "EhMKC3N1aXRfbnVtYmVyGBUgASgFEhkKEWJhZ19zb3J0X3ByaW9yaXR5GBYg",
             "ASgNEg4KBnN0YXR1cxgXIAEoDRIMCgRyYW5rGBggASgNEhYKDnByaWNlX2Rp",
             "c2NvdW50GBkgASgNEhQKDHZpcF9kaXNjb3VudBgaIAEoDRIrCgtwcmljZV90",
             "YWJsZRgbIAMoCzIWLnByb3RvLkdvb2RzSW5mby5QcmljZRIuCgpnb29kc19h",
             "dHRyGBwgAygLMhoucHJvdG8uR29vZHNJbmZvLkdvb2RzQXR0chITCgtkZXNj",
-            "cmlwdGlvbhgdIAEoDBIQCghsaW1pdF9pZBgeIAEoDRITCgtzdWJTeXN0ZW1J",
-            "ZBgfIAEoDBpCCgVQcmljZRIQCghwcmljZV9kcRgBIAEoDRISCgpwcmljZV9n",
+            "cmlwdGlvbhgdIAEoCRIQCghsaW1pdF9pZBgeIAEoDRITCgtzdWJTeXN0ZW1J",
+            "ZBgfIAEoCRpCCgVQcmljZRIQCghwcmljZV9kcRgBIAEoDRISCgpwcmljZV9n",
             "b2xkGAIgASgNEhMKC3ByaWNlX3ZhbHVlGAMgASgNGjIKCUdvb2RzQXR0chIR",
             "CglhdHRyX3R5cGUYASABKA0SEgoKYXR0cl92YWx1ZRgCIAEoDSIyCg9Hb29k",
             "c0luZm9fQVJSQVkSHwoFaXRlbXMYASADKAsyEC5wcm90by5Hb29kc0luZm9i",
@@ -138,12 +138,12 @@ namespace Proto {
 
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 2;
-    private pb::ByteString name_ = pb::ByteString.Empty;
+    private string name_ = "";
     /// <summary>
     ///* 商品名 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Name {
+    public string Name {
       get { return name_; }
       set {
         name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -290,9 +290,9 @@ namespace Proto {
 
     /// <summary>Field number for the "online_time" field.</summary>
     public const int OnlineTimeFieldNumber = 12;
-    private pb::ByteString onlineTime_ = pb::ByteString.Empty;
+    private string onlineTime_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString OnlineTime {
+    public string OnlineTime {
       get { return onlineTime_; }
       set {
         onlineTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -301,7 +301,7 @@ namespace Proto {
 
     /// <summary>Field number for the "offline_time" field.</summary>
     public const int OfflineTimeFieldNumber = 13;
-    private pb::ByteString offlineTime_ = pb::ByteString.Empty;
+    private string offlineTime_ = "";
     /// <summary>
     ///* 下架时间
     ///(YYYY-MM-DD HH:MM:SS)
@@ -310,7 +310,7 @@ namespace Proto {
     ///2.下架的最终确定需结合“有效时间”、“是否上架”
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString OfflineTime {
+    public string OfflineTime {
       get { return offlineTime_; }
       set {
         offlineTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -396,7 +396,7 @@ namespace Proto {
 
     /// <summary>Field number for the "valid_time" field.</summary>
     public const int ValidTimeFieldNumber = 19;
-    private pb::ByteString validTime_ = pb::ByteString.Empty;
+    private string validTime_ = "";
     /// <summary>
     ///*  有效时间
     ///（过期会从背包删除）
@@ -405,7 +405,7 @@ namespace Proto {
     ///2011-10-10 00:00:00
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString ValidTime {
+    public string ValidTime {
       get { return validTime_; }
       set {
         validTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -537,12 +537,12 @@ namespace Proto {
 
     /// <summary>Field number for the "description" field.</summary>
     public const int DescriptionFieldNumber = 29;
-    private pb::ByteString description_ = pb::ByteString.Empty;
+    private string description_ = "";
     /// <summary>
     ///* 商品详情 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Description {
+    public string Description {
       get { return description_; }
       set {
         description_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -567,12 +567,12 @@ namespace Proto {
 
     /// <summary>Field number for the "subSystemId" field.</summary>
     public const int SubSystemIdFieldNumber = 31;
-    private pb::ByteString subSystemId_ = pb::ByteString.Empty;
+    private string subSystemId_ = "";
     /// <summary>
     ///* 使用 跳转id 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString SubSystemId {
+    public string SubSystemId {
       get { return subSystemId_; }
       set {
         subSystemId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -679,7 +679,7 @@ namespace Proto {
       }
       if (Name.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteBytes(Name);
+        output.WriteString(Name);
       }
       if (Sex != 0) {
         output.WriteRawTag(24);
@@ -719,11 +719,11 @@ namespace Proto {
       }
       if (OnlineTime.Length != 0) {
         output.WriteRawTag(98);
-        output.WriteBytes(OnlineTime);
+        output.WriteString(OnlineTime);
       }
       if (OfflineTime.Length != 0) {
         output.WriteRawTag(106);
-        output.WriteBytes(OfflineTime);
+        output.WriteString(OfflineTime);
       }
       privilegedPlatIdList_.WriteTo(output, _repeated_privilegedPlatIdList_codec);
       if (PrivilegedPlatIsOnline != 0) {
@@ -744,7 +744,7 @@ namespace Proto {
       }
       if (ValidTime.Length != 0) {
         output.WriteRawTag(154, 1);
-        output.WriteBytes(ValidTime);
+        output.WriteString(ValidTime);
       }
       if (SortPriority != 0) {
         output.WriteRawTag(160, 1);
@@ -778,7 +778,7 @@ namespace Proto {
       goodsAttr_.WriteTo(output, _repeated_goodsAttr_codec);
       if (Description.Length != 0) {
         output.WriteRawTag(234, 1);
-        output.WriteBytes(Description);
+        output.WriteString(Description);
       }
       if (LimitId != 0) {
         output.WriteRawTag(240, 1);
@@ -786,7 +786,7 @@ namespace Proto {
       }
       if (SubSystemId.Length != 0) {
         output.WriteRawTag(250, 1);
-        output.WriteBytes(SubSystemId);
+        output.WriteString(SubSystemId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -800,7 +800,7 @@ namespace Proto {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GoodsId);
       }
       if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Name);
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
       if (Sex != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Sex);
@@ -830,10 +830,10 @@ namespace Proto {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CanRecharge);
       }
       if (OnlineTime.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(OnlineTime);
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OnlineTime);
       }
       if (OfflineTime.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(OfflineTime);
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OfflineTime);
       }
       size += privilegedPlatIdList_.CalculateSize(_repeated_privilegedPlatIdList_codec);
       if (PrivilegedPlatIsOnline != 0) {
@@ -849,7 +849,7 @@ namespace Proto {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(PaymentTerms);
       }
       if (ValidTime.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeBytesSize(ValidTime);
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ValidTime);
       }
       if (SortPriority != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(SortPriority);
@@ -875,13 +875,13 @@ namespace Proto {
       size += priceTable_.CalculateSize(_repeated_priceTable_codec);
       size += goodsAttr_.CalculateSize(_repeated_goodsAttr_codec);
       if (Description.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeBytesSize(Description);
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Description);
       }
       if (LimitId != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(LimitId);
       }
       if (SubSystemId.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeBytesSize(SubSystemId);
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SubSystemId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -999,7 +999,7 @@ namespace Proto {
             break;
           }
           case 18: {
-            Name = input.ReadBytes();
+            Name = input.ReadString();
             break;
           }
           case 24: {
@@ -1039,11 +1039,11 @@ namespace Proto {
             break;
           }
           case 98: {
-            OnlineTime = input.ReadBytes();
+            OnlineTime = input.ReadString();
             break;
           }
           case 106: {
-            OfflineTime = input.ReadBytes();
+            OfflineTime = input.ReadString();
             break;
           }
           case 114:
@@ -1068,7 +1068,7 @@ namespace Proto {
             break;
           }
           case 154: {
-            ValidTime = input.ReadBytes();
+            ValidTime = input.ReadString();
             break;
           }
           case 160: {
@@ -1108,7 +1108,7 @@ namespace Proto {
             break;
           }
           case 234: {
-            Description = input.ReadBytes();
+            Description = input.ReadString();
             break;
           }
           case 240: {
@@ -1116,7 +1116,7 @@ namespace Proto {
             break;
           }
           case 250: {
-            SubSystemId = input.ReadBytes();
+            SubSystemId = input.ReadString();
             break;
           }
         }
