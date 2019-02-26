@@ -108,7 +108,7 @@ message GoodsInfo{
         背包排序有较复杂的具体排序逻辑。本数值只用于背包中的【其他】物品的排序
     */
     uint32 bag_sort_priority = 22;
-    uint32 status = 23;
+    string status = 23;
     uint32 rank = 24;
     /** 折扣（1-100） */
     uint32 price_discount = 25;

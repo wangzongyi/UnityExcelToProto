@@ -36,7 +36,7 @@ namespace Proto {
             "X3BsYXRfY2FuX3JlY2hhcmdlGBEgASgNEhUKDXBheW1lbnRfdGVybXMYEiAB",
             "KA0SEgoKdmFsaWRfdGltZRgTIAEoCRIVCg1zb3J0X3ByaW9yaXR5GBQgASgN",
             "EhMKC3N1aXRfbnVtYmVyGBUgASgFEhkKEWJhZ19zb3J0X3ByaW9yaXR5GBYg",
-            "ASgNEg4KBnN0YXR1cxgXIAEoDRIMCgRyYW5rGBggASgNEhYKDnByaWNlX2Rp",
+            "ASgNEg4KBnN0YXR1cxgXIAEoCRIMCgRyYW5rGBggASgNEhYKDnByaWNlX2Rp",
             "c2NvdW50GBkgASgNEhQKDHZpcF9kaXNjb3VudBgaIAEoDRIrCgtwcmljZV90",
             "YWJsZRgbIAMoCzIWLnByb3RvLkdvb2RzSW5mby5QcmljZRIuCgpnb29kc19h",
             "dHRyGBwgAygLMhoucHJvdG8uR29vZHNJbmZvLkdvb2RzQXR0chITCgtkZXNj",
@@ -468,12 +468,12 @@ namespace Proto {
 
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 23;
-    private uint status_;
+    private string status_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Status {
+    public string Status {
       get { return status_; }
       set {
-        status_ = value;
+        status_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -652,7 +652,7 @@ namespace Proto {
       if (SortPriority != 0) hash ^= SortPriority.GetHashCode();
       if (SuitNumber != 0) hash ^= SuitNumber.GetHashCode();
       if (BagSortPriority != 0) hash ^= BagSortPriority.GetHashCode();
-      if (Status != 0) hash ^= Status.GetHashCode();
+      if (Status.Length != 0) hash ^= Status.GetHashCode();
       if (Rank != 0) hash ^= Rank.GetHashCode();
       if (PriceDiscount != 0) hash ^= PriceDiscount.GetHashCode();
       if (VipDiscount != 0) hash ^= VipDiscount.GetHashCode();
@@ -759,9 +759,9 @@ namespace Proto {
         output.WriteRawTag(176, 1);
         output.WriteUInt32(BagSortPriority);
       }
-      if (Status != 0) {
-        output.WriteRawTag(184, 1);
-        output.WriteUInt32(Status);
+      if (Status.Length != 0) {
+        output.WriteRawTag(186, 1);
+        output.WriteString(Status);
       }
       if (Rank != 0) {
         output.WriteRawTag(192, 1);
@@ -861,8 +861,8 @@ namespace Proto {
       if (BagSortPriority != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(BagSortPriority);
       }
-      if (Status != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(Status);
+      if (Status.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Status);
       }
       if (Rank != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(Rank);
@@ -959,7 +959,7 @@ namespace Proto {
       if (other.BagSortPriority != 0) {
         BagSortPriority = other.BagSortPriority;
       }
-      if (other.Status != 0) {
+      if (other.Status.Length != 0) {
         Status = other.Status;
       }
       if (other.Rank != 0) {
@@ -1084,8 +1084,8 @@ namespace Proto {
             BagSortPriority = input.ReadUInt32();
             break;
           }
-          case 184: {
-            Status = input.ReadUInt32();
+          case 186: {
+            Status = input.ReadString();
             break;
           }
           case 192: {

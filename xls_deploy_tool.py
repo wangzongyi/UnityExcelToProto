@@ -470,7 +470,7 @@ class DataParser:
                 # 一般也只能是数字类型
                 field_type = second_row
                 field_name = str(self._sheet.cell_value(FIELD_NAME_ROW, self._col)).strip()
-                field_value_str = self._sheet.cell_value(self._row, self._col)
+                field_value_str = str(self._sheet.cell_value(self._row, self._col)).strip()
                 # field_value_str = unicode(self._sheet.cell_value(self._row, self._col)).strip()
 
                 # LOG_INFO("%d|%d|%s|%s|%s",
