@@ -25,9 +25,9 @@ namespace Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChJwcm90by9QZXJzb24ucHJvdG8SBXByb3RvIiYKBlBlcnNvbhIKCgJpZBgB",
-            "IAEoCRIQCgh1c2VybmFtZRgCIAEoCSJ0CglQZXJzb25NYXASKgoFaXRlbXMY",
+            "IAEoDRIQCgh1c2VybmFtZRgCIAEoCSJ0CglQZXJzb25NYXASKgoFaXRlbXMY",
             "ASADKAsyGy5wcm90by5QZXJzb25NYXAuSXRlbXNFbnRyeRo7CgpJdGVtc0Vu",
-            "dHJ5EgsKA2tleRgBIAEoCRIcCgV2YWx1ZRgCIAEoCzINLnByb3RvLlBlcnNv",
+            "dHJ5EgsKA2tleRgBIAEoDRIcCgV2YWx1ZRgCIAEoCzINLnByb3RvLlBlcnNv",
             "bjoCOAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -77,15 +77,15 @@ namespace Proto {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private string id_ = "";
+    private uint id_;
     /// <summary>
     ///* Œ®“ª±Í ∂ 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
+    public uint Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
@@ -124,7 +124,7 @@ namespace Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (Id != 0) hash ^= Id.GetHashCode();
       if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -139,9 +139,9 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Id);
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Id);
       }
       if (Username.Length != 0) {
         output.WriteRawTag(18);
@@ -155,8 +155,8 @@ namespace Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
       }
       if (Username.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
@@ -172,7 +172,7 @@ namespace Proto {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
+      if (other.Id != 0) {
         Id = other.Id;
       }
       if (other.Username.Length != 0) {
@@ -191,8 +191,8 @@ namespace Proto {
               return;
             }
             break;
-          case 10: {
-            Id = input.ReadString();
+          case 8: {
+            Id = input.ReadUInt32();
             break;
           }
           case 18: {
@@ -241,11 +241,11 @@ namespace Proto {
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pbc::MapField<string, global::Proto.Person>.Codec _map_items_codec
-        = new pbc::MapField<string, global::Proto.Person>.Codec(pb::FieldCodec.ForString(10), pb::FieldCodec.ForMessage(18, global::Proto.Person.Parser), 10);
-    private readonly pbc::MapField<string, global::Proto.Person> items_ = new pbc::MapField<string, global::Proto.Person>();
+    private static readonly pbc::MapField<uint, global::Proto.Person>.Codec _map_items_codec
+        = new pbc::MapField<uint, global::Proto.Person>.Codec(pb::FieldCodec.ForUInt32(8), pb::FieldCodec.ForMessage(18, global::Proto.Person.Parser), 10);
+    private readonly pbc::MapField<uint, global::Proto.Person> items_ = new pbc::MapField<uint, global::Proto.Person>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, global::Proto.Person> Items {
+    public pbc::MapField<uint, global::Proto.Person> Items {
       get { return items_; }
     }
 

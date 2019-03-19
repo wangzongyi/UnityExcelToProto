@@ -9,11 +9,11 @@ package proto;
 
 message Person{
     /** 唯一标识 */
-    string id = 1;
+    uint32 id = 1;
     /** 姓名 */
     string username = 2;
 }
 
 message PersonMap {
-    map<string, Person> items = 1;
+    map<uint32, Person> items = 1;
 }

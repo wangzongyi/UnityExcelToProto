@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='proto',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x12proto/Person.proto\x12\x05proto\"&\n\x06Person\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\"t\n\tPersonMap\x12*\n\x05items\x18\x01 \x03(\x0b\x32\x1b.proto.PersonMap.ItemsEntry\x1a;\n\nItemsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1c\n\x05value\x18\x02 \x01(\x0b\x32\r.proto.Person:\x02\x38\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x12proto/Person.proto\x12\x05proto\"&\n\x06Person\x12\n\n\x02id\x18\x01 \x01(\r\x12\x10\n\x08username\x18\x02 \x01(\t\"t\n\tPersonMap\x12*\n\x05items\x18\x01 \x03(\x0b\x32\x1b.proto.PersonMap.ItemsEntry\x1a;\n\nItemsEntry\x12\x0b\n\x03key\x18\x01 \x01(\r\x12\x1c\n\x05value\x18\x02 \x01(\x0b\x32\r.proto.Person:\x02\x38\x01\x62\x06proto3')
 )
 
 
@@ -35,8 +35,8 @@ _PERSON = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='proto.Person.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -73,8 +73,8 @@ _PERSONMAP_ITEMSENTRY = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='proto.PersonMap.ItemsEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),

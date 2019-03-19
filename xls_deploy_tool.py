@@ -32,6 +32,7 @@
 import xlrd
 import sys
 import os
+from google.protobuf.json_format import MessageToDict, MessageToJson
 
 # TAP的空格数
 TAP_BLANK_NUM = 4
@@ -339,7 +340,6 @@ class Sheetinterpreter:
         pb_file.writelines(self._output)
         pb_file.close()
 
-
 class DataParser:
     """解析excel的数据"""
 
@@ -398,7 +398,7 @@ class DataParser:
                 print("parse_line error:", e)
 
         LOG_INFO("parse result:\n%s", item_array)
-        self.write_readable_data_to_file(str(item_array))
+        self.write_json_to_file(MessageToJson(item_array))
         data = item_array.SerializeToString()
         self.write_data_to_file(data)
 
@@ -580,8 +580,8 @@ class DataParser:
         file.write(data)
         file.close()
 
-    def write_readable_data_to_file(self, data):
-        file_name = self._sheet_name.lower() + ".txt"
+    def write_json_to_file(self, data):
+        file_name = self._sheet_name.lower() + ".json"
         file = open(txt_path + '/' + file_name, 'wb+')
         file.write(data.encode('utf-8'))
         file.close()
