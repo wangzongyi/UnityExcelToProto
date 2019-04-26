@@ -127,7 +127,7 @@ namespace Proto {
     public const int GoodsIdFieldNumber = 1;
     private uint goodsId_;
     /// <summary>
-    ///* ÉÌÆ·ID 
+    ///* å•†å“ID 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint GoodsId {
@@ -141,7 +141,7 @@ namespace Proto {
     public const int NameFieldNumber = 2;
     private string name_ = "";
     /// <summary>
-    ///* ÉÌÆ·Ãû 
+    ///* å•†å“å 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
@@ -155,10 +155,10 @@ namespace Proto {
     public const int SexFieldNumber = 3;
     private uint sex_;
     /// <summary>
-    ///* ĞÔ±ğ
-    ///²»ÏŞÖÆ£º100
-    ///male£º101
-    ///female£º102
+    ///* æ€§åˆ«
+    ///ä¸é™åˆ¶ï¼š100
+    ///maleï¼š101
+    ///femaleï¼š102
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Sex {
@@ -172,7 +172,7 @@ namespace Proto {
     public const int LevelLimitFieldNumber = 4;
     private uint levelLimit_;
     /// <summary>
-    ///* µÈ¼¶ÏŞÖÆ 
+    ///* ç­‰çº§é™åˆ¶ 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint LevelLimit {
@@ -186,7 +186,7 @@ namespace Proto {
     public const int ClubVipLevelFieldNumber = 5;
     private int clubVipLevel_;
     /// <summary>
-    ///*  ´ïÈË¾ãÀÖ²¿µÈ¼¶ÏŞÖÆ£¨ÆÕÍ¨ÉÌÆ·²»ÓÃÅäÖÃ»òÅäÖÃ0£© 
+    ///*  è¾¾äººä¿±ä¹éƒ¨ç­‰çº§é™åˆ¶ï¼ˆæ™®é€šå•†å“ä¸ç”¨é…ç½®æˆ–é…ç½®0ï¼‰ 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int ClubVipLevel {
@@ -200,7 +200,7 @@ namespace Proto {
     public const int Qb2FieldNumber = 6;
     private int qb2_;
     /// <summary>
-    ///*  2Q±Ò×¨Çø£¨ÆÕÍ¨ÉÌÆ·²»ÓÃÅäÖÃ»òÅäÖÃ0£© 
+    ///*  2Qå¸ä¸“åŒºï¼ˆæ™®é€šå•†å“ä¸ç”¨é…ç½®æˆ–é…ç½®0ï¼‰ 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Qb2 {
@@ -225,13 +225,13 @@ namespace Proto {
     public const int TimeUnitFieldNumber = 8;
     private uint timeUnit_;
     /// <summary>
-    ///* ¼ÆÊ±µ¥Î»
-    ///0 Ä¬ÈÏ(Ìì)
-    ///1 ·ÖÖÓ
-    ///2 Ğ¡Ê±
-    ///3 Ìì
-    ///4 ÔÂ
-    ///5 Äê
+    ///* è®¡æ—¶å•ä½
+    ///0 é»˜è®¤(å¤©)
+    ///1 åˆ†é’Ÿ
+    ///2 å°æ—¶
+    ///3 å¤©
+    ///4 æœˆ
+    ///5 å¹´
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint TimeUnit {
@@ -245,9 +245,9 @@ namespace Proto {
     public const int IsOnlineFieldNumber = 9;
     private uint isOnline_;
     /// <summary>
-    ///* ÊÇ·ñÉÌ³ÇÉÏ¼ÜÏÔÊ¾£¨¸ù¾İĞèÒªÅäÖÃÉÏÏÂ¼ÜÊ±¼ä£©
-    ///0 ·ñ
-    ///1 ÊÇ
+    ///* æ˜¯å¦å•†åŸä¸Šæ¶æ˜¾ç¤ºï¼ˆæ ¹æ®éœ€è¦é…ç½®ä¸Šä¸‹æ¶æ—¶é—´ï¼‰
+    ///0 å¦
+    ///1 æ˜¯
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint IsOnline {
@@ -261,9 +261,9 @@ namespace Proto {
     public const int CanBuyFieldNumber = 10;
     private uint canBuy_;
     /// <summary>
-    ///* ÄÜ·ñ¹ºÂò£¨ÒÑÉÏ¼ÜÎïÆ·±ØÈ»¿ÉÂò£¬¸ù¾İĞèÒªÅäÖÃÉÏÏÂ¼ÜÊ±¼ä£©
-    ///0 ·ñ
-    ///1 ÊÇ
+    ///* èƒ½å¦è´­ä¹°ï¼ˆå·²ä¸Šæ¶ç‰©å“å¿…ç„¶å¯ä¹°ï¼Œæ ¹æ®éœ€è¦é…ç½®ä¸Šä¸‹æ¶æ—¶é—´ï¼‰
+    ///0 å¦
+    ///1 æ˜¯
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint CanBuy {
@@ -277,9 +277,9 @@ namespace Proto {
     public const int CanRechargeFieldNumber = 11;
     private uint canRecharge_;
     /// <summary>
-    ///* ¿É·ñĞø·Ñ
-    ///0 ·ñ
-    ///1 ÊÇ
+    ///* å¯å¦ç»­è´¹
+    ///0 å¦
+    ///1 æ˜¯
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint CanRecharge {
@@ -304,11 +304,11 @@ namespace Proto {
     public const int OfflineTimeFieldNumber = 13;
     private string offlineTime_ = "";
     /// <summary>
-    ///* ÏÂ¼ÜÊ±¼ä
+    ///* ä¸‹æ¶æ—¶é—´
     ///(YYYY-MM-DD HH:MM:SS)
     ///
-    ///1.²»Ìî±íÊ¾ÓÃ²»ÏÂ¼Ü
-    ///2.ÏÂ¼ÜµÄ×îÖÕÈ·¶¨Ğè½áºÏ¡°ÓĞĞ§Ê±¼ä¡±¡¢¡°ÊÇ·ñÉÏ¼Ü¡±
+    ///1.ä¸å¡«è¡¨ç¤ºç”¨ä¸ä¸‹æ¶
+    ///2.ä¸‹æ¶çš„æœ€ç»ˆç¡®å®šéœ€ç»“åˆâ€œæœ‰æ•ˆæ—¶é—´â€ã€â€œæ˜¯å¦ä¸Šæ¶â€
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string OfflineTime {
@@ -332,10 +332,10 @@ namespace Proto {
     public const int PrivilegedPlatIsOnlineFieldNumber = 15;
     private uint privilegedPlatIsOnline_;
     /// <summary>
-    ///* ÊÇ·ñÉÌ³ÇÉÏ¼ÜÏÔÊ¾
-    ///£¨¸ù¾İĞèÒªÅäÖÃÉÏÏÂ¼ÜÊ±¼ä£©
-    ///0 ·ñ
-    ///1 ÊÇ
+    ///* æ˜¯å¦å•†åŸä¸Šæ¶æ˜¾ç¤º
+    ///ï¼ˆæ ¹æ®éœ€è¦é…ç½®ä¸Šä¸‹æ¶æ—¶é—´ï¼‰
+    ///0 å¦
+    ///1 æ˜¯
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint PrivilegedPlatIsOnline {
@@ -349,10 +349,10 @@ namespace Proto {
     public const int PrivilegedPlatCanBuyFieldNumber = 16;
     private uint privilegedPlatCanBuy_;
     /// <summary>
-    ///* ÄÜ·ñ¹ºÂò
-    ///£¨ÒÑÉÏ¼ÜÎïÆ·±ØÈ»¿ÉÂò£¬¸ù¾İĞèÒªÅäÖÃÉÏÏÂ¼ÜÊ±¼ä£©
-    ///0 ·ñ
-    ///1 ÊÇ
+    ///* èƒ½å¦è´­ä¹°
+    ///ï¼ˆå·²ä¸Šæ¶ç‰©å“å¿…ç„¶å¯ä¹°ï¼Œæ ¹æ®éœ€è¦é…ç½®ä¸Šä¸‹æ¶æ—¶é—´ï¼‰
+    ///0 å¦
+    ///1 æ˜¯
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint PrivilegedPlatCanBuy {
@@ -366,9 +366,9 @@ namespace Proto {
     public const int PrivilegedPlatCanRechargeFieldNumber = 17;
     private uint privilegedPlatCanRecharge_;
     /// <summary>
-    ///* ¿É·ñĞø·Ñ
-    ///0 ·ñ
-    ///1 ÊÇ
+    ///* å¯å¦ç»­è´¹
+    ///0 å¦
+    ///1 æ˜¯
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint PrivilegedPlatCanRecharge {
@@ -382,10 +382,10 @@ namespace Proto {
     public const int PaymentTermsFieldNumber = 18;
     private uint paymentTerms_;
     /// <summary>
-    ///* Ö§¸¶·½Ê½
-    ///0 Ä¬ÈÏ²»ÏŞ
-    ///1 Ö»ÏŞQB
-    ///2 Ö»ÏŞµãÈ¯
+    ///* æ”¯ä»˜æ–¹å¼
+    ///0 é»˜è®¤ä¸é™
+    ///1 åªé™QB
+    ///2 åªé™ç‚¹åˆ¸
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint PaymentTerms {
@@ -399,10 +399,10 @@ namespace Proto {
     public const int ValidTimeFieldNumber = 19;
     private string validTime_ = "";
     /// <summary>
-    ///*  ÓĞĞ§Ê±¼ä
-    ///£¨¹ıÆÚ»á´Ó±³°üÉ¾³ı£©
-    ///ĞèÒªÔÙÌí¼Ó
-    ///¸ñÊ½ÈçÏÂ£¬ÈÕÆÚºÍÊ±¼äÖĞ¼äÊÇ¿Õ¸ñ£¬²»ÊÇ»»ĞĞ£¡
+    ///*  æœ‰æ•ˆæ—¶é—´
+    ///ï¼ˆè¿‡æœŸä¼šä»èƒŒåŒ…åˆ é™¤ï¼‰
+    ///éœ€è¦å†æ·»åŠ 
+    ///æ ¼å¼å¦‚ä¸‹ï¼Œæ—¥æœŸå’Œæ—¶é—´ä¸­é—´æ˜¯ç©ºæ ¼ï¼Œä¸æ˜¯æ¢è¡Œï¼
     ///2011-10-10 00:00:00
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -417,10 +417,10 @@ namespace Proto {
     public const int SortPriorityFieldNumber = 20;
     private uint sortPriority_;
     /// <summary>
-    ///* ÅÅĞòÓÅÏÈ¼¶
+    ///* æ’åºä¼˜å…ˆçº§
     ///
-    ///1~? ÓÅÏÈ¼¶µİ¼õ
-    ///0 ×îµÍÓÅÏÈ¼¶
+    ///1~? ä¼˜å…ˆçº§é€’å‡
+    ///0 æœ€ä½ä¼˜å…ˆçº§
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint SortPriority {
@@ -434,11 +434,11 @@ namespace Proto {
     public const int SuitNumberFieldNumber = 21;
     private int suitNumber_;
     /// <summary>
-    ///* ÅäÌ×±àºÅ
+    ///* é…å¥—ç¼–å·
     ///
-    ///-1 É¢×°
-    ///0 ×ÓidÏàÍ¬Ä¬ÈÏ³ÉÌ×
-    ///1~9999 ÅäÌ×±àºÅ£¨ÔÊĞí²»Í¬×Óid£©
+    ///-1 æ•£è£…
+    ///0 å­idç›¸åŒé»˜è®¤æˆå¥—
+    ///1~9999 é…å¥—ç¼–å·ï¼ˆå…è®¸ä¸åŒå­idï¼‰
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int SuitNumber {
@@ -452,11 +452,11 @@ namespace Proto {
     public const int BagSortPriorityFieldNumber = 22;
     private uint bagSortPriority_;
     /// <summary>
-    ///* ±³°üÅÅĞòÓÅÏÈ¼¶
+    ///* èƒŒåŒ…æ’åºä¼˜å…ˆçº§
     ///
-    ///0~ÕıÊıÓÅÏÈ¼¶µİÔö
+    ///0~æ­£æ•°ä¼˜å…ˆçº§é€’å¢
     ///
-    ///±³°üÅÅĞòÓĞ½Ï¸´ÔÓµÄ¾ßÌåÅÅĞòÂß¼­¡£±¾ÊıÖµÖ»ÓÃÓÚ±³°üÖĞµÄ¡¾ÆäËû¡¿ÎïÆ·µÄÅÅĞò
+    ///èƒŒåŒ…æ’åºæœ‰è¾ƒå¤æ‚çš„å…·ä½“æ’åºé€»è¾‘ã€‚æœ¬æ•°å€¼åªç”¨äºèƒŒåŒ…ä¸­çš„ã€å…¶ä»–ã€‘ç‰©å“çš„æ’åº
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint BagSortPriority {
@@ -492,7 +492,7 @@ namespace Proto {
     public const int PriceDiscountFieldNumber = 25;
     private uint priceDiscount_;
     /// <summary>
-    ///* ÕÛ¿Û£¨1-100£© 
+    ///* æŠ˜æ‰£ï¼ˆ1-100ï¼‰ 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint PriceDiscount {
@@ -506,7 +506,7 @@ namespace Proto {
     public const int VipDiscountFieldNumber = 26;
     private uint vipDiscount_;
     /// <summary>
-    ///* VIPÕÛ¿Û£¨1-100£© 
+    ///* VIPæŠ˜æ‰£ï¼ˆ1-100ï¼‰ 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint VipDiscount {
@@ -540,7 +540,7 @@ namespace Proto {
     public const int DescriptionFieldNumber = 29;
     private string description_ = "";
     /// <summary>
-    ///* ÉÌÆ·ÏêÇé 
+    ///* å•†å“è¯¦æƒ… 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Description {
@@ -554,9 +554,9 @@ namespace Proto {
     public const int LimitIdFieldNumber = 30;
     private uint limitId_;
     /// <summary>
-    ///* ÉÌ³Ç¹ºÂòµÄÏŞÖÆid
-    ///ÏêÏ¸ÅäÖÃÔÚ
-    ///limitation±í
+    ///* å•†åŸè´­ä¹°çš„é™åˆ¶id
+    ///è¯¦ç»†é…ç½®åœ¨
+    ///limitationè¡¨
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint LimitId {
@@ -570,7 +570,7 @@ namespace Proto {
     public const int SubSystemIdFieldNumber = 31;
     private string subSystemId_ = "";
     /// <summary>
-    ///* Ê¹ÓÃ Ìø×ªid 
+    ///* ä½¿ç”¨ è·³è½¬id 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string SubSystemId {
@@ -1168,7 +1168,7 @@ namespace Proto {
         public const int PriceDqFieldNumber = 1;
         private uint priceDq_;
         /// <summary>
-        ///* µãÈ¯¼Û¸ñ 
+        ///* ç‚¹åˆ¸ä»·æ ¼ 
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public uint PriceDq {
@@ -1182,7 +1182,7 @@ namespace Proto {
         public const int PriceGoldFieldNumber = 2;
         private uint priceGold_;
         /// <summary>
-        ///* ½ğ±Ò¼Û¸ñ 
+        ///* é‡‘å¸ä»·æ ¼ 
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public uint PriceGold {
@@ -1196,7 +1196,7 @@ namespace Proto {
         public const int PriceValueFieldNumber = 3;
         private uint priceValue_;
         /// <summary>
-        ///* ÌìÊı»òÊıÁ¿ 
+        ///* å¤©æ•°æˆ–æ•°é‡ 
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public uint PriceValue {
@@ -1363,12 +1363,12 @@ namespace Proto {
         public const int AttrTypeFieldNumber = 1;
         private uint attrType_;
         /// <summary>
-        ///* ÊôĞÔÀàĞÍ
+        ///* å±æ€§ç±»å‹
         ///1 HP
-        ///2 ÌåÁ¦
-        ///3 Å­Æø
-        ///4 ¹¥»÷Á¦
-        ///5 ±©»÷
+        ///2 ä½“åŠ›
+        ///3 æ€’æ°”
+        ///4 æ”»å‡»åŠ›
+        ///5 æš´å‡»
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public uint AttrType {
@@ -1382,12 +1382,12 @@ namespace Proto {
         public const int AttrValueFieldNumber = 2;
         private uint attrValue_;
         /// <summary>
-        ///* ÊôĞÔÖµ
+        ///* å±æ€§å€¼
         ///(HP
-        ///Í··¢£º150
-        ///ÉÏÉí£º150
-        ///ÏÂÉí£º100
-        ///±íÇé£º50
+        ///å¤´å‘ï¼š150
+        ///ä¸Šèº«ï¼š150
+        ///ä¸‹èº«ï¼š100
+        ///è¡¨æƒ…ï¼š50
         ///)
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

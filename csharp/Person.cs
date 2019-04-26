@@ -79,7 +79,7 @@ namespace Proto {
     public const int IdFieldNumber = 1;
     private uint id_;
     /// <summary>
-    ///* 唯一标识 
+    ///* 鍞竴鏍囪瘑 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Id {
@@ -93,7 +93,7 @@ namespace Proto {
     public const int UsernameFieldNumber = 2;
     private string username_ = "";
     /// <summary>
-    ///* 姓名 
+    ///* 濮撳悕 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Username {

@@ -24,84 +24,84 @@ $root.proto = (function() {
          * Properties of a GoodsInfo.
          * @memberof proto
          * @interface IGoodsInfo
-         * @property {number|null} [goodsId] ��ƷID
-         * @property {string|null} [name] ��Ʒ��
-         * @property {number|null} [sex] �Ա�
-         * �����ƣ�100
-         * male��101
-         * female��102
-         * @property {number|null} [levelLimit] �ȼ�����
-         * @property {number|null} [clubVipLevel] ���˾��ֲ��ȼ����ƣ���ͨ��Ʒ�������û�����0��
-         * @property {number|null} [qb_2] 2Q��ר������ͨ��Ʒ�������û�����0��
+         * @property {number|null} [goodsId] 商品ID
+         * @property {string|null} [name] 商品名
+         * @property {number|null} [sex] 性别
+         * 不限制：100
+         * male：101
+         * female：102
+         * @property {number|null} [levelLimit] 等级限制
+         * @property {number|null} [clubVipLevel] 达人俱乐部等级限制（普通商品不用配置或配置0）
+         * @property {number|null} [qb_2] 2Q币专区（普通商品不用配置或配置0）
          * @property {number|null} [consumeType] GoodsInfo consumeType
-         * @property {number|null} [timeUnit] ��ʱ��λ
-         * 0 Ĭ��(��)
-         * 1 ����
-         * 2 Сʱ
-         * 3 ��
-         * 4 ��
-         * 5 ��
-         * @property {number|null} [isOnline] �Ƿ��̳��ϼ���ʾ��������Ҫ�������¼�ʱ�䣩
-         * 0 ��
-         * 1 ��
-         * @property {number|null} [canBuy] �ܷ������ϼ���Ʒ��Ȼ���򣬸�����Ҫ�������¼�ʱ�䣩
-         * 0 ��
-         * 1 ��
-         * @property {number|null} [canRecharge] �ɷ�����
-         * 0 ��
-         * 1 ��
+         * @property {number|null} [timeUnit] 计时单位
+         * 0 默认(天)
+         * 1 分钟
+         * 2 小时
+         * 3 天
+         * 4 月
+         * 5 年
+         * @property {number|null} [isOnline] 是否商城上架显示（根据需要配置上下架时间）
+         * 0 否
+         * 1 是
+         * @property {number|null} [canBuy] 能否购买（已上架物品必然可买，根据需要配置上下架时间）
+         * 0 否
+         * 1 是
+         * @property {number|null} [canRecharge] 可否续费
+         * 0 否
+         * 1 是
          * @property {string|null} [onlineTime] GoodsInfo onlineTime
-         * @property {string|null} [offlineTime] �¼�ʱ��
+         * @property {string|null} [offlineTime] 下架时间
          * (YYYY-MM-DD HH:MM:SS)
          * 
-         * 1.�����ʾ�ò��¼�
-         * 2.�¼ܵ�����ȷ�����ϡ���Чʱ�䡱�����Ƿ��ϼܡ�
+         * 1.不填表示用不下架
+         * 2.下架的最终确定需结合“有效时间”、“是否上架”
          * @property {Array.<number>|null} [privilegedPlatIdList] GoodsInfo privilegedPlatIdList
-         * @property {number|null} [privilegedPlatIsOnline] �Ƿ��̳��ϼ���ʾ
-         * ��������Ҫ�������¼�ʱ�䣩
-         * 0 ��
-         * 1 ��
-         * @property {number|null} [privilegedPlatCanBuy] �ܷ���
-         * �����ϼ���Ʒ��Ȼ���򣬸�����Ҫ�������¼�ʱ�䣩
-         * 0 ��
-         * 1 ��
-         * @property {number|null} [privilegedPlatCanRecharge] �ɷ�����
-         * 0 ��
-         * 1 ��
-         * @property {number|null} [paymentTerms] ֧����ʽ
-         * 0 Ĭ�ϲ���
-         * 1 ֻ��QB
-         * 2 ֻ�޵�ȯ
-         * @property {string|null} [validTime] ��Чʱ��
-         * �����ڻ�ӱ���ɾ����
-         * ��Ҫ������
-         * ��ʽ���£����ں�ʱ���м��ǿո񣬲��ǻ��У�
+         * @property {number|null} [privilegedPlatIsOnline] 是否商城上架显示
+         * （根据需要配置上下架时间）
+         * 0 否
+         * 1 是
+         * @property {number|null} [privilegedPlatCanBuy] 能否购买
+         * （已上架物品必然可买，根据需要配置上下架时间）
+         * 0 否
+         * 1 是
+         * @property {number|null} [privilegedPlatCanRecharge] 可否续费
+         * 0 否
+         * 1 是
+         * @property {number|null} [paymentTerms] 支付方式
+         * 0 默认不限
+         * 1 只限QB
+         * 2 只限点券
+         * @property {string|null} [validTime] 有效时间
+         * （过期会从背包删除）
+         * 需要再添加
+         * 格式如下，日期和时间中间是空格，不是换行！
          * 2011-10-10 00:00:00
-         * @property {number|null} [sortPriority] �������ȼ�
+         * @property {number|null} [sortPriority] 排序优先级
          * 
-         * 1~? ���ȼ��ݼ�
-         * 0 ������ȼ�
-         * @property {number|null} [suitNumber] ���ױ��
+         * 1~? 优先级递减
+         * 0 最低优先级
+         * @property {number|null} [suitNumber] 配套编号
          * 
-         * -1 ɢװ
-         * 0 ��id��ͬĬ�ϳ���
-         * 1~9999 ���ױ�ţ�������ͬ��id��
-         * @property {number|null} [bagSortPriority] �����������ȼ�
+         * -1 散装
+         * 0 子id相同默认成套
+         * 1~9999 配套编号（允许不同子id）
+         * @property {number|null} [bagSortPriority] 背包排序优先级
          * 
-         * 0~�������ȼ�����
+         * 0~正数优先级递增
          * 
-         * ���������нϸ��ӵľ��������߼�������ֵֻ���ڱ����еġ���������Ʒ������
+         * 背包排序有较复杂的具体排序逻辑。本数值只用于背包中的【其他】物品的排序
          * @property {string|null} [status] GoodsInfo status
          * @property {number|null} [rank] GoodsInfo rank
-         * @property {number|null} [priceDiscount] �ۿۣ�1-100��
-         * @property {number|null} [vipDiscount] VIP�ۿۣ�1-100��
+         * @property {number|null} [priceDiscount] 折扣（1-100）
+         * @property {number|null} [vipDiscount] VIP折扣（1-100）
          * @property {Array.<proto.GoodsInfo.IPrice>|null} [priceTable] GoodsInfo priceTable
          * @property {Array.<proto.GoodsInfo.IGoodsAttr>|null} [goodsAttr] GoodsInfo goodsAttr
-         * @property {string|null} [description] ��Ʒ����
-         * @property {number|null} [limitId] �̳ǹ��������id
-         * ��ϸ������
-         * limitation��
-         * @property {string|null} [subSystemId] ʹ�� ��תid
+         * @property {string|null} [description] 商品详情
+         * @property {number|null} [limitId] 商城购买的限制id
+         * 详细配置在
+         * limitation表
+         * @property {string|null} [subSystemId] 使用 跳转id
          */
 
         /**
@@ -123,7 +123,7 @@ $root.proto = (function() {
         }
 
         /**
-         * ��ƷID
+         * 商品ID
          * @member {number} goodsId
          * @memberof proto.GoodsInfo
          * @instance
@@ -131,7 +131,7 @@ $root.proto = (function() {
         GoodsInfo.prototype.goodsId = 0;
 
         /**
-         * ��Ʒ��
+         * 商品名
          * @member {string} name
          * @memberof proto.GoodsInfo
          * @instance
@@ -139,10 +139,10 @@ $root.proto = (function() {
         GoodsInfo.prototype.name = "";
 
         /**
-         * �Ա�
-         * �����ƣ�100
-         * male��101
-         * female��102
+         * 性别
+         * 不限制：100
+         * male：101
+         * female：102
          * @member {number} sex
          * @memberof proto.GoodsInfo
          * @instance
@@ -150,7 +150,7 @@ $root.proto = (function() {
         GoodsInfo.prototype.sex = 0;
 
         /**
-         * �ȼ�����
+         * 等级限制
          * @member {number} levelLimit
          * @memberof proto.GoodsInfo
          * @instance
@@ -158,7 +158,7 @@ $root.proto = (function() {
         GoodsInfo.prototype.levelLimit = 0;
 
         /**
-         * ���˾��ֲ��ȼ����ƣ���ͨ��Ʒ�������û�����0��
+         * 达人俱乐部等级限制（普通商品不用配置或配置0）
          * @member {number} clubVipLevel
          * @memberof proto.GoodsInfo
          * @instance
@@ -166,7 +166,7 @@ $root.proto = (function() {
         GoodsInfo.prototype.clubVipLevel = 0;
 
         /**
-         * 2Q��ר������ͨ��Ʒ�������û�����0��
+         * 2Q币专区（普通商品不用配置或配置0）
          * @member {number} qb_2
          * @memberof proto.GoodsInfo
          * @instance
@@ -182,13 +182,13 @@ $root.proto = (function() {
         GoodsInfo.prototype.consumeType = 0;
 
         /**
-         * ��ʱ��λ
-         * 0 Ĭ��(��)
-         * 1 ����
-         * 2 Сʱ
-         * 3 ��
-         * 4 ��
-         * 5 ��
+         * 计时单位
+         * 0 默认(天)
+         * 1 分钟
+         * 2 小时
+         * 3 天
+         * 4 月
+         * 5 年
          * @member {number} timeUnit
          * @memberof proto.GoodsInfo
          * @instance
@@ -196,9 +196,9 @@ $root.proto = (function() {
         GoodsInfo.prototype.timeUnit = 0;
 
         /**
-         * �Ƿ��̳��ϼ���ʾ��������Ҫ�������¼�ʱ�䣩
-         * 0 ��
-         * 1 ��
+         * 是否商城上架显示（根据需要配置上下架时间）
+         * 0 否
+         * 1 是
          * @member {number} isOnline
          * @memberof proto.GoodsInfo
          * @instance
@@ -206,9 +206,9 @@ $root.proto = (function() {
         GoodsInfo.prototype.isOnline = 0;
 
         /**
-         * �ܷ������ϼ���Ʒ��Ȼ���򣬸�����Ҫ�������¼�ʱ�䣩
-         * 0 ��
-         * 1 ��
+         * 能否购买（已上架物品必然可买，根据需要配置上下架时间）
+         * 0 否
+         * 1 是
          * @member {number} canBuy
          * @memberof proto.GoodsInfo
          * @instance
@@ -216,9 +216,9 @@ $root.proto = (function() {
         GoodsInfo.prototype.canBuy = 0;
 
         /**
-         * �ɷ�����
-         * 0 ��
-         * 1 ��
+         * 可否续费
+         * 0 否
+         * 1 是
          * @member {number} canRecharge
          * @memberof proto.GoodsInfo
          * @instance
@@ -234,11 +234,11 @@ $root.proto = (function() {
         GoodsInfo.prototype.onlineTime = "";
 
         /**
-         * �¼�ʱ��
+         * 下架时间
          * (YYYY-MM-DD HH:MM:SS)
          * 
-         * 1.�����ʾ�ò��¼�
-         * 2.�¼ܵ�����ȷ�����ϡ���Чʱ�䡱�����Ƿ��ϼܡ�
+         * 1.不填表示用不下架
+         * 2.下架的最终确定需结合“有效时间”、“是否上架”
          * @member {string} offlineTime
          * @memberof proto.GoodsInfo
          * @instance
@@ -254,10 +254,10 @@ $root.proto = (function() {
         GoodsInfo.prototype.privilegedPlatIdList = $util.emptyArray;
 
         /**
-         * �Ƿ��̳��ϼ���ʾ
-         * ��������Ҫ�������¼�ʱ�䣩
-         * 0 ��
-         * 1 ��
+         * 是否商城上架显示
+         * （根据需要配置上下架时间）
+         * 0 否
+         * 1 是
          * @member {number} privilegedPlatIsOnline
          * @memberof proto.GoodsInfo
          * @instance
@@ -265,10 +265,10 @@ $root.proto = (function() {
         GoodsInfo.prototype.privilegedPlatIsOnline = 0;
 
         /**
-         * �ܷ���
-         * �����ϼ���Ʒ��Ȼ���򣬸�����Ҫ�������¼�ʱ�䣩
-         * 0 ��
-         * 1 ��
+         * 能否购买
+         * （已上架物品必然可买，根据需要配置上下架时间）
+         * 0 否
+         * 1 是
          * @member {number} privilegedPlatCanBuy
          * @memberof proto.GoodsInfo
          * @instance
@@ -276,9 +276,9 @@ $root.proto = (function() {
         GoodsInfo.prototype.privilegedPlatCanBuy = 0;
 
         /**
-         * �ɷ�����
-         * 0 ��
-         * 1 ��
+         * 可否续费
+         * 0 否
+         * 1 是
          * @member {number} privilegedPlatCanRecharge
          * @memberof proto.GoodsInfo
          * @instance
@@ -286,10 +286,10 @@ $root.proto = (function() {
         GoodsInfo.prototype.privilegedPlatCanRecharge = 0;
 
         /**
-         * ֧����ʽ
-         * 0 Ĭ�ϲ���
-         * 1 ֻ��QB
-         * 2 ֻ�޵�ȯ
+         * 支付方式
+         * 0 默认不限
+         * 1 只限QB
+         * 2 只限点券
          * @member {number} paymentTerms
          * @memberof proto.GoodsInfo
          * @instance
@@ -297,10 +297,10 @@ $root.proto = (function() {
         GoodsInfo.prototype.paymentTerms = 0;
 
         /**
-         * ��Чʱ��
-         * �����ڻ�ӱ���ɾ����
-         * ��Ҫ������
-         * ��ʽ���£����ں�ʱ���м��ǿո񣬲��ǻ��У�
+         * 有效时间
+         * （过期会从背包删除）
+         * 需要再添加
+         * 格式如下，日期和时间中间是空格，不是换行！
          * 2011-10-10 00:00:00
          * @member {string} validTime
          * @memberof proto.GoodsInfo
@@ -309,10 +309,10 @@ $root.proto = (function() {
         GoodsInfo.prototype.validTime = "";
 
         /**
-         * �������ȼ�
+         * 排序优先级
          * 
-         * 1~? ���ȼ��ݼ�
-         * 0 ������ȼ�
+         * 1~? 优先级递减
+         * 0 最低优先级
          * @member {number} sortPriority
          * @memberof proto.GoodsInfo
          * @instance
@@ -320,11 +320,11 @@ $root.proto = (function() {
         GoodsInfo.prototype.sortPriority = 0;
 
         /**
-         * ���ױ��
+         * 配套编号
          * 
-         * -1 ɢװ
-         * 0 ��id��ͬĬ�ϳ���
-         * 1~9999 ���ױ�ţ�������ͬ��id��
+         * -1 散装
+         * 0 子id相同默认成套
+         * 1~9999 配套编号（允许不同子id）
          * @member {number} suitNumber
          * @memberof proto.GoodsInfo
          * @instance
@@ -332,11 +332,11 @@ $root.proto = (function() {
         GoodsInfo.prototype.suitNumber = 0;
 
         /**
-         * �����������ȼ�
+         * 背包排序优先级
          * 
-         * 0~�������ȼ�����
+         * 0~正数优先级递增
          * 
-         * ���������нϸ��ӵľ��������߼�������ֵֻ���ڱ����еġ���������Ʒ������
+         * 背包排序有较复杂的具体排序逻辑。本数值只用于背包中的【其他】物品的排序
          * @member {number} bagSortPriority
          * @memberof proto.GoodsInfo
          * @instance
@@ -360,7 +360,7 @@ $root.proto = (function() {
         GoodsInfo.prototype.rank = 0;
 
         /**
-         * �ۿۣ�1-100��
+         * 折扣（1-100）
          * @member {number} priceDiscount
          * @memberof proto.GoodsInfo
          * @instance
@@ -368,7 +368,7 @@ $root.proto = (function() {
         GoodsInfo.prototype.priceDiscount = 0;
 
         /**
-         * VIP�ۿۣ�1-100��
+         * VIP折扣（1-100）
          * @member {number} vipDiscount
          * @memberof proto.GoodsInfo
          * @instance
@@ -392,7 +392,7 @@ $root.proto = (function() {
         GoodsInfo.prototype.goodsAttr = $util.emptyArray;
 
         /**
-         * ��Ʒ����
+         * 商品详情
          * @member {string} description
          * @memberof proto.GoodsInfo
          * @instance
@@ -400,9 +400,9 @@ $root.proto = (function() {
         GoodsInfo.prototype.description = "";
 
         /**
-         * �̳ǹ��������id
-         * ��ϸ������
-         * limitation��
+         * 商城购买的限制id
+         * 详细配置在
+         * limitation表
          * @member {number} limitId
          * @memberof proto.GoodsInfo
          * @instance
@@ -410,7 +410,7 @@ $root.proto = (function() {
         GoodsInfo.prototype.limitId = 0;
 
         /**
-         * ʹ�� ��תid
+         * 使用 跳转id
          * @member {string} subSystemId
          * @memberof proto.GoodsInfo
          * @instance
@@ -1031,9 +1031,9 @@ $root.proto = (function() {
              * Properties of a Price.
              * @memberof proto.GoodsInfo
              * @interface IPrice
-             * @property {number|null} [priceDq] ��ȯ�۸�
-             * @property {number|null} [priceGold] ��Ҽ۸�
-             * @property {number|null} [priceValue] ����������
+             * @property {number|null} [priceDq] 点券价格
+             * @property {number|null} [priceGold] 金币价格
+             * @property {number|null} [priceValue] 天数或数量
              */
 
             /**
@@ -1052,7 +1052,7 @@ $root.proto = (function() {
             }
 
             /**
-             * ��ȯ�۸�
+             * 点券价格
              * @member {number} priceDq
              * @memberof proto.GoodsInfo.Price
              * @instance
@@ -1060,7 +1060,7 @@ $root.proto = (function() {
             Price.prototype.priceDq = 0;
 
             /**
-             * ��Ҽ۸�
+             * 金币价格
              * @member {number} priceGold
              * @memberof proto.GoodsInfo.Price
              * @instance
@@ -1068,7 +1068,7 @@ $root.proto = (function() {
             Price.prototype.priceGold = 0;
 
             /**
-             * ����������
+             * 天数或数量
              * @member {number} priceValue
              * @memberof proto.GoodsInfo.Price
              * @instance
@@ -1263,18 +1263,18 @@ $root.proto = (function() {
              * Properties of a GoodsAttr.
              * @memberof proto.GoodsInfo
              * @interface IGoodsAttr
-             * @property {number|null} [attrType] ��������
+             * @property {number|null} [attrType] 属性类型
              * 1 HP
-             * 2 ����
-             * 3 ŭ��
-             * 4 ������
-             * 5 ����
-             * @property {number|null} [attrValue] ����ֵ
+             * 2 体力
+             * 3 怒气
+             * 4 攻击力
+             * 5 暴击
+             * @property {number|null} [attrValue] 属性值
              * (HP
-             * ͷ����150
-             * ������150
-             * ������100
-             * ���飺50
+             * 头发：150
+             * 上身：150
+             * 下身：100
+             * 表情：50
              * )
              */
 
@@ -1294,12 +1294,12 @@ $root.proto = (function() {
             }
 
             /**
-             * ��������
+             * 属性类型
              * 1 HP
-             * 2 ����
-             * 3 ŭ��
-             * 4 ������
-             * 5 ����
+             * 2 体力
+             * 3 怒气
+             * 4 攻击力
+             * 5 暴击
              * @member {number} attrType
              * @memberof proto.GoodsInfo.GoodsAttr
              * @instance
@@ -1307,12 +1307,12 @@ $root.proto = (function() {
             GoodsAttr.prototype.attrType = 0;
 
             /**
-             * ����ֵ
+             * 属性值
              * (HP
-             * ͷ����150
-             * ������150
-             * ������100
-             * ���飺50
+             * 头发：150
+             * 上身：150
+             * 下身：100
+             * 表情：50
              * )
              * @member {number} attrValue
              * @memberof proto.GoodsInfo.GoodsAttr
@@ -1717,8 +1717,8 @@ $root.proto = (function() {
          * Properties of a Person.
          * @memberof proto
          * @interface IPerson
-         * @property {string|null} [id] Ψһ��ʶ
-         * @property {string|null} [username] ����
+         * @property {number|null} [id] 唯一标识
+         * @property {string|null} [username] 姓名
          */
 
         /**
@@ -1737,15 +1737,15 @@ $root.proto = (function() {
         }
 
         /**
-         * Ψһ��ʶ
-         * @member {string} id
+         * 唯一标识
+         * @member {number} id
          * @memberof proto.Person
          * @instance
          */
-        Person.prototype.id = "";
+        Person.prototype.id = 0;
 
         /**
-         * ����
+         * 姓名
          * @member {string} username
          * @memberof proto.Person
          * @instance
@@ -1777,7 +1777,7 @@ $root.proto = (function() {
             if (!writer)
                 writer = $Writer.create();
             if (message.id != null && message.hasOwnProperty("id"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.id);
             if (message.username != null && message.hasOwnProperty("username"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.username);
             return writer;
@@ -1815,7 +1815,7 @@ $root.proto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.id = reader.string();
+                    message.id = reader.uint32();
                     break;
                 case 2:
                     message.username = reader.string();
@@ -1856,8 +1856,8 @@ $root.proto = (function() {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.id != null && message.hasOwnProperty("id"))
-                if (!$util.isString(message.id))
-                    return "id: string expected";
+                if (!$util.isInteger(message.id))
+                    return "id: integer expected";
             if (message.username != null && message.hasOwnProperty("username"))
                 if (!$util.isString(message.username))
                     return "username: string expected";
@@ -1877,7 +1877,7 @@ $root.proto = (function() {
                 return object;
             var message = new $root.proto.Person();
             if (object.id != null)
-                message.id = String(object.id);
+                message.id = object.id >>> 0;
             if (object.username != null)
                 message.username = String(object.username);
             return message;
@@ -1897,7 +1897,7 @@ $root.proto = (function() {
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.id = "";
+                object.id = 0;
                 object.username = "";
             }
             if (message.id != null && message.hasOwnProperty("id"))
@@ -1980,7 +1980,7 @@ $root.proto = (function() {
                 writer = $Writer.create();
             if (message.items != null && message.hasOwnProperty("items"))
                 for (var keys = Object.keys(message.items), i = 0; i < keys.length; ++i) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                    writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
                     $root.proto.Person.encode(message.items[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                 }
             return writer;
@@ -2021,7 +2021,7 @@ $root.proto = (function() {
                     reader.skip().pos++;
                     if (message.items === $util.emptyObject)
                         message.items = {};
-                    key = reader.string();
+                    key = reader.uint32();
                     reader.pos++;
                     message.items[key] = $root.proto.Person.decode(reader, reader.uint32());
                     break;
@@ -2065,9 +2065,13 @@ $root.proto = (function() {
                     return "items: object expected";
                 var key = Object.keys(message.items);
                 for (var i = 0; i < key.length; ++i) {
-                    var error = $root.proto.Person.verify(message.items[key[i]]);
-                    if (error)
-                        return "items." + error;
+                    if (!$util.key32Re.test(key[i]))
+                        return "items: integer key{k:uint32} expected";
+                    {
+                        var error = $root.proto.Person.verify(message.items[key[i]]);
+                        if (error)
+                            return "items." + error;
+                    }
                 }
             }
             return null;

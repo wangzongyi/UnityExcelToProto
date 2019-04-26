@@ -1,2 +1,2 @@
-pbts -o proto.d.ts proto.js
-@pause
+pbts -o proto.d.ts proto.js --no-comments
+pause

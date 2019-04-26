@@ -156,7 +156,7 @@ class Sheetinterpreter:
 
         self.layout_array()
 
-        self.write_to_file()
+        self.write_proto_to_file()
 
         LogHelp.close()
         # 将PB转换成py格式
@@ -334,11 +334,12 @@ class Sheetinterpreter:
         self._output.append("message " + self._sheet_name + "Map {\n")
         self._output.append("    map<%s, %s> " % (field_type, self._sheet_name) + "items = 1;\n}\n", )
 
-    def write_to_file(self):
+    def write_proto_to_file(self):
         """输出到文件"""
-        pb_file = open(proto_path + self._pb_file_name, "w+")
+        pb_file = open(proto_path + self._pb_file_name, "w+", -1, "utf8")
         pb_file.writelines(self._output)
         pb_file.close()
+
 
 class DataParser:
     """解析excel的数据"""
@@ -479,16 +480,14 @@ class DataParser:
                 # 2013-01-24 jamey
                 # 增加长度判断
                 if len(field_value_str) > 0:
-                    if field_value_str.find(";\n") > 0:
-                        field_value_list = field_value_str.split(";\n")
+                    if field_value_str.find("|\n") > 0:
+                        field_value_list = field_value_str.split("|\n")
                     else:
-                        field_value_list = field_value_str.split(";")
+                        field_value_list = field_value_str.split("|")
 
                     for field_value in field_value_list:
-                        if field_type == "bytes":
-                            item.__getattribute__(field_name).append(field_value.encode("utf8"))
-                        else:
-                            item.__getattribute__(field_name).append(int(float(field_value)))
+                        field_value = self.convert_field_value(field_type, field_value)
+                        item.__getattribute__(field_name).append(field_value)
 
                 self._col += 1
 
@@ -539,7 +538,10 @@ class DataParser:
         field_value = self._sheet.cell_value(row, col)
         field_name = self._sheet.cell_value(2, col)
         LOG_INFO("%s|%d|%d|%s", filed_id, row, col, field_value)
+        return self.convert_field_value(field_type, field_value)
 
+    @staticmethod
+    def convert_field_value(field_type, field_value):
         try:
             if field_type == "int32" or field_type == "int64" \
                     or field_type == "uint32" or field_type == "uint64" \
@@ -549,7 +551,7 @@ class DataParser:
                 if len(str(field_value).strip()) <= 0:
                     return None
                 else:
-                    return int(field_value)
+                    return int(float(field_value))
             elif field_type == "double" or field_type == "float":
                 if len(str(field_value).strip()) <= 0:
                     return None
@@ -570,8 +572,7 @@ class DataParser:
             else:
                 return None
         except BaseException as error:
-            print("param:%s parse cell(%u, %u) error, please check it, maybe type is wrong.%s" % (
-                field_name, row, col, error))
+            print("parse error, please check it, maybe type is wrong.%s" % error)
             raise
 
     def write_data_to_file(self, data):

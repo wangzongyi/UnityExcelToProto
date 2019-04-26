@@ -1,6 +1,6 @@
 /**
 * @file:   Person.proto
-* @说明:  这个文件是通过工具自动生成的，建议不要手动修改
+* @璇存槑:  杩欎釜鏂囦欢鏄�氳繃宸ュ叿鑷姩鐢熸垚鐨勶紝寤鸿涓嶈鎵嬪姩淇敼
 */
 
 syntax = "proto3";
@@ -8,9 +8,9 @@ syntax = "proto3";
 package proto;
 
 message Person{
-    /** 唯一标识 */
+    /** 鍞竴鏍囪瘑 */
     uint32 id = 1;
-    /** 姓名 */
+    /** 濮撳悕 */
     string username = 2;
 }
 
