@@ -650,5 +650,3 @@ if __name__ == '__main__':
             print("protoc csharp failed:%s!" % e)
 
         print("编译%s成功！" % sheet_name)
-
-    print("编译所有文件成功!!!")
