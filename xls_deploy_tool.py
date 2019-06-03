@@ -32,6 +32,8 @@
 import xlrd
 import sys
 import os
+import re
+from google.protobuf.json_format import MessageToDict, MessageToJson
 
 # TAP的空格数
 TAP_BLANK_NUM = 4
@@ -95,7 +97,7 @@ proto_path = 'proto/'
 txt_path = 'txt'
 data_path = 'protodata'
 csharp_path = 'csharp'
-
+csharp_manager_path = 'csharp_manager'
 
 class Sheetinterpreter:
     """通过excel配置生成配置的protobuf定义文件"""
@@ -155,7 +157,7 @@ class Sheetinterpreter:
 
         self.layout_array()
 
-        self.write_to_file()
+        self.write_proto_to_file()
 
         LogHelp.close()
         # 将PB转换成py格式
@@ -329,12 +331,13 @@ class Sheetinterpreter:
 
     def layout_array(self):
         """输出数组定义"""
-        self._output.append("message " + self._sheet_name + "_ARRAY {\n")
-        self._output.append("    repeated " + self._sheet_name + " items = 1;\n}\n")
+        field_type = str(self._sheet.cell_value(FIELD_TYPE_ROW, 0)).strip()
+        self._output.append("message " + self._sheet_name + "Map {\n")
+        self._output.append("    map<%s, %s> " % (field_type, self._sheet_name) + "items = 1;\n}\n", )
 
-    def write_to_file(self):
+    def write_proto_to_file(self):
         """输出到文件"""
-        pb_file = open(proto_path + self._pb_file_name, "w+")
+        pb_file = open(proto_path + self._pb_file_name, "w+", -1, "utf8")
         pb_file.writelines(self._output)
         pb_file.close()
 
@@ -358,6 +361,11 @@ class DataParser:
             sys.path.append(os.getcwd() + '/' + proto_path)
             exec('from ' + self._module_name + ' import *')
             self._module = sys.modules[self._module_name]
+
+            cshapr_template = open("csharp_manager_template.txt", "r+")
+            self.cshapr_template_format = cshapr_template.read()
+            cshapr_template.close()
+
         except BaseException as e:
             print("load module(%s) failed" % self._module_name)
             raise
@@ -366,7 +374,7 @@ class DataParser:
         """对外的接口:解析数据"""
         LOG_INFO("begin parse, row_count = %d, col_count = %d", self._row_count, self._col_count)
 
-        item_array = getattr(self._module, self._sheet_name + '_ARRAY')()
+        item_array = getattr(self._module, self._sheet_name + 'Map')()
 
         # 先找到定义ID的列
         id_col = 0
@@ -377,22 +385,40 @@ class DataParser:
             else:
                 break
 
+        generic_type = field_type = str(self._sheet.cell_value(FIELD_TYPE_ROW, 0)).strip()
+        if generic_type == "uint32":
+            generic_type = "uint"
+        elif generic_type == "int32":
+            generic_type = "int"
+        elif generic_type == "int64":
+            generic_type = "long"
+        elif generic_type == "uint64":
+            generic_type = "ulong"
+        elif generic_type == "int64":
+            generic_type = "long"
+
+        if field_type.__contains__('int'):
+            field_type = int
+        else:
+            field_type = str
+
         for self._row in range(4, self._row_count):
             # 如果 id 是 空 直接跳过改行
             info_id = str(self._sheet.cell_value(self._row, id_col)).strip()
             if info_id == "":
                 LOG_WARN("%d is None", self._row)
                 continue
-            item = item_array.items.add()
+            item = item_array.items[info_id if field_type == str else field_type(float(info_id))]
             try:
                 self.parse_line(item)
             except BaseException as e:
                 print("parse_line error:", e)
 
         LOG_INFO("parse result:\n%s", item_array)
-        self.write_readable_data_to_file(str(item_array))
+        self.write_json_to_file(MessageToJson(item_array))
         data = item_array.SerializeToString()
         self.write_data_to_file(data)
+        self.write_csharp_manager(generic_type)
 
         # comment this line for test .by kevin at 2013年1月12日 17:23:35
         LogHelp.close()
@@ -462,7 +488,7 @@ class DataParser:
                 # 一般也只能是数字类型
                 field_type = second_row
                 field_name = str(self._sheet.cell_value(FIELD_NAME_ROW, self._col)).strip()
-                field_value_str = self._sheet.cell_value(self._row, self._col)
+                field_value_str = str(self._sheet.cell_value(self._row, self._col)).strip()
                 # field_value_str = unicode(self._sheet.cell_value(self._row, self._col)).strip()
 
                 # LOG_INFO("%d|%d|%s|%s|%s",
@@ -471,16 +497,15 @@ class DataParser:
                 # 2013-01-24 jamey
                 # 增加长度判断
                 if len(field_value_str) > 0:
-                    if field_value_str.find(";\n") > 0:
-                        field_value_list = field_value_str.split(";\n")
-                    else:
-                        field_value_list = field_value_str.split(";")
+                    field_value_list = re.split(r'[|,，]', field_value_str)
+                    #if field_value_str.find("|\n") > 0:
+                    #    field_value_list = field_value_str.split("|\n")
+                    #else:
+                    #    field_value_list = field_value_str.split("|")
 
                     for field_value in field_value_list:
-                        if field_type == "bytes":
-                            item.__getattribute__(field_name).append(field_value.encode("utf8"))
-                        else:
-                            item.__getattribute__(field_name).append(int(float(field_value)))
+                        field_value = self.convert_field_value(field_type, field_value)
+                        item.__getattribute__(field_name).append(field_value)
 
                 self._col += 1
 
@@ -531,7 +556,10 @@ class DataParser:
         field_value = self._sheet.cell_value(row, col)
         field_name = self._sheet.cell_value(2, col)
         LOG_INFO("%s|%d|%d|%s", filed_id, row, col, field_value)
+        return self.convert_field_value(field_type, field_value)
 
+    @staticmethod
+    def convert_field_value(field_type, field_value):
         try:
             if field_type == "int32" or field_type == "int64" \
                     or field_type == "uint32" or field_type == "uint64" \
@@ -541,14 +569,14 @@ class DataParser:
                 if len(str(field_value).strip()) <= 0:
                     return None
                 else:
-                    return int(field_value)
+                    return int(float(field_value))
             elif field_type == "double" or field_type == "float":
                 if len(str(field_value).strip()) <= 0:
                     return None
                 else:
                     return float(field_value)
             elif field_type == "string":
-                field_value = field_value
+                field_value = str(field_value)
                 if len(field_value) <= 0:
                     return None
                 else:
@@ -562,8 +590,7 @@ class DataParser:
             else:
                 return None
         except BaseException as error:
-            print("param:%s parse cell(%u, %u) error, please check it, maybe type is wrong.%s" % (
-                field_name, row, col, error))
+            print("parse error, please check it, maybe type is wrong.%s" % error)
             raise
 
     def write_data_to_file(self, data):
@@ -572,10 +599,16 @@ class DataParser:
         file.write(data)
         file.close()
 
-    def write_readable_data_to_file(self, data):
-        file_name = self._sheet_name.lower() + ".txt"
+    def write_json_to_file(self, data):
+        file_name = self._sheet_name.lower() + ".json"
         file = open(txt_path + '/' + file_name, 'wb+')
         file.write(data.encode('utf-8'))
+        file.close()
+
+    def write_csharp_manager(self, field_type):
+        file_name = self._sheet_name+"Manager.cs"
+        file = open(csharp_manager_path + '/' + file_name, 'wb+')
+        file.write(str(self.cshapr_template_format).format(self._sheet_name, field_type).encode('utf-8'))
         file.close()
 
 
@@ -641,5 +674,3 @@ if __name__ == '__main__':
             print("protoc csharp failed:%s!" % e)
 
         print("编译%s成功！" % sheet_name)
-
-    print("编译所有文件成功!!!")
