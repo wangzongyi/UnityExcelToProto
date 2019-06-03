@@ -1,0 +1,19 @@
+/**
+* @file:   WordConfig.proto
+* @说明:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+syntax = "proto3";
+
+package proto;
+
+message WordConfig{
+    /** 指令ID */
+    uint32 ID = 1;
+    /** 字符 */
+    string Words = 2;
+}
+
+message WordConfigMap {
+    map<uint32, WordConfig> items = 1;
+}

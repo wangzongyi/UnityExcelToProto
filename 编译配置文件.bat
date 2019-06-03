@@ -1,13 +1,13 @@
-@SET ProjectFolder=F:\CasualFrame
+@SET ProjectFolder=%cd%\..
 @SET LibsFolder=%ProjectFolder%\Assets\Casual\Libs
 @SET ProtoFolder=%ProjectFolder%\Assets\Casual\Resources\ClientProto
 
-@ECHO 工程目录:%ProjectFolder%
+@ECHO 项目目录:%ProjectFolder%
 @ECHO 库目录:%LibsFolder%
 @ECHO 配置目录:%ProtoFolder%
 
 @IF NOT EXIST %ProjectFolder% (
-@ECHO 未设置工作目录
+@ECHO 未设置项目目录
 @PAUSE
 @EXIT
 )
@@ -19,13 +19,13 @@
 @EXIT
 )
 
-@CALL python xls_deploy_tool.py xls/GoodsInfo.xls
+@ECHO 开始编译xls目录下的配置文件
+@FOR %%P IN (xls\*) DO @CALL python xls_deploy_tool.py %%P
 
 @%CSC6% /out:client-proto.dll /t:library /r:Google.Protobuf.dll /debug- /optimize+ csharp\*.cs
 
-@ECHO 复制文件至工程目录
+@ECHO 复制配置文件至项目目录
 
 @XCOPY client-proto.dll %LibsFolder%\ /Y
 @FOR %%P IN (protodata\*) DO @XCOPY %%P %ProtoFolder%\ /Y
-	
 @pause
