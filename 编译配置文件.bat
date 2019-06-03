@@ -1,6 +1,7 @@
 @SET ProjectFolder=%cd%\..
 @SET LibsFolder=%ProjectFolder%\Assets\Casual\Libs
-@SET ProtoFolder=%ProjectFolder%\Assets\Casual\Resources\ClientProto
+@SET ProtoFolder=%ProjectFolder%\Assets\Casual\Bundle\ClientProto
+@SET ManagerFolder=%ProjectFolder%\Assets\Casual\Scripts\Config
 
 @ECHO 项目目录:%ProjectFolder%
 @ECHO 库目录:%LibsFolder%
@@ -27,5 +28,7 @@
 @ECHO 复制配置文件至项目目录
 
 @XCOPY client-proto.dll %LibsFolder%\ /Y
-@FOR %%P IN (protodata\*) DO @XCOPY %%P %ProtoFolder%\ /Y
+@FOR %%P IN (protodata\*.bytes) DO @XCOPY %%P %ProtoFolder%\ /Y
+@FOR %%P IN (csharp_manager\*.cs) DO @IF NOT EXIST %ManagerFolder%\%%~NXP @XCOPY %%P %ManagerFolder%\/Y
+
 @pause
