@@ -397,18 +397,16 @@ class DataParser:
         elif generic_type == "int64":
             generic_type = "long"
 
-        if field_type.__contains__('int'):
-            field_type = int
-        else:
-            field_type = str
-
         for self._row in range(4, self._row_count):
             # 如果 id 是 空 直接跳过改行
-            info_id = str(self._sheet.cell_value(self._row, id_col)).strip()
+            cell_type = self._sheet.cell(self._row, id_col).ctype
+            info_id = self._sheet.cell_value(self._row, id_col)
+            info_id = self.convert_field_value(field_type, info_id, cell_type)
             if info_id == "":
                 LOG_WARN("%d is None", self._row)
                 continue
-            item = item_array.items[info_id if field_type == str else field_type(float(info_id))]
+            item = item_array.items[info_id]
+
             try:
                 self.parse_line(item)
             except BaseException as e:
@@ -554,39 +552,30 @@ class DataParser:
 
         filed_id = self._sheet.cell_value(row, 1)
         field_value = self._sheet.cell_value(row, col)
-        field_name = self._sheet.cell_value(2, col)
+        cell_type = self._sheet.cell(row, col).ctype
         LOG_INFO("%s|%d|%d|%s", filed_id, row, col, field_value)
-        return self.convert_field_value(field_type, field_value)
+        return self.convert_field_value(field_type, field_value, cell_type)
 
     @staticmethod
-    def convert_field_value(field_type, field_value):
+    def convert_field_value(field_type, field_value, cell_type = 1):
         try:
+            if len(str(field_value).strip()) <= 0:
+                return None
+            elif cell_type == 2 and field_value % 1 == 0.0:
+                field_value = int(field_value)
+
             if field_type == "int32" or field_type == "int64" \
                     or field_type == "uint32" or field_type == "uint64" \
                     or field_type == "sint32" or field_type == "sint64" \
                     or field_type == "fixed32" or field_type == "fixed64" \
                     or field_type == "sfixed32" or field_type == "sfixed64":
-                if len(str(field_value).strip()) <= 0:
-                    return None
-                else:
-                    return int(float(field_value))
+                return int(float(field_value))
             elif field_type == "double" or field_type == "float":
-                if len(str(field_value).strip()) <= 0:
-                    return None
-                else:
-                    return float(field_value)
+                return field_value
             elif field_type == "string":
-                field_value = str(field_value)
-                if len(field_value) <= 0:
-                    return None
-                else:
-                    return field_value
+                return str(field_value)
             elif field_type == "bytes":
-                field_value = str(field_value).encode('utf-8')
-                if len(field_value) <= 0:
-                    return None
-                else:
-                    return field_value
+                return str(field_value).encode('utf-8')
             else:
                 return None
         except BaseException as error:
