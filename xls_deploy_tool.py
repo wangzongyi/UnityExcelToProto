@@ -571,7 +571,7 @@ class DataParser:
                     or field_type == "sfixed32" or field_type == "sfixed64":
                 return int(float(field_value))
             elif field_type == "double" or field_type == "float":
-                return field_value
+                return float(field_value)
             elif field_type == "string":
                 return str(field_value)
             elif field_type == "bytes":
