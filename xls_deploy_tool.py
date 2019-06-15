@@ -179,8 +179,7 @@ class Sheetinterpreter:
 
             LOG_INFO("%s|%s|%s|%s", field_rule, field_type, field_name, field_comment)
 
-            comment = field_comment
-            self.layout_comment(comment)
+            self.layout_comment(field_comment)
 
             if repeated_num >= 1:
                 field_rule = "repeated"
@@ -208,9 +207,7 @@ class Sheetinterpreter:
                 field_comment = self._sheet.cell_value(FIELD_COMMENT_ROW, self._col)
                 LOG_INFO("%s|%s|%s|%s", field_rule, field_type, field_name, field_comment)
 
-                comment = field_comment
-                self.layout_comment(comment)
-
+                self.layout_comment(field_comment)
                 self.layout_one_field(field_rule, field_type, field_name)
 
                 self._col += 1
@@ -292,7 +289,7 @@ class Sheetinterpreter:
 
     def layout_comment(self, comment):
         # 改用C风格的注释，防止会有分行
-        if not self._is_layout:
+        if not self._is_layout or len(str(comment)) <= 0:
             return
         if comment.count("\n") > 1:
             if comment[-1] != '\n':
