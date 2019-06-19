@@ -21,7 +21,9 @@
 )
 
 @ECHO 开始编译xls目录下的配置文件
-@FOR %%P IN (xls\*) DO @CALL python xls_deploy_tool.py %%P
+%@FOR %%P IN (xls\*) DO @CALL python xls_deploy_tool.py %%P%
+
+@CALL python xls_deploy_tool.py
 
 @%CSC6% /out:client-proto.dll /t:library /r:Google.Protobuf.dll /debug- /optimize+ csharp\*.cs
 
