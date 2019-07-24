@@ -579,6 +579,8 @@ class DataParser:
                 return str(field_value)
             elif field_type == "bytes":
                 return str(field_value).encode('utf-8')
+            elif field_type == "bool":
+                return str.lower(str(field_value)) == str.lower(str(True)) or str(field_value) == "1"
             else:
                 return None
         except BaseException as error:
