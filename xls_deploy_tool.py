@@ -636,6 +636,7 @@ if __name__ == '__main__':
         sys.exit(-1)
 
     for line in open(compile_file_path, "r+"):
+        line = line.strip()
         for xls_file_path in glob.glob(line):
             try:
                 workbook = xlrd.open_workbook(xls_file_path)
