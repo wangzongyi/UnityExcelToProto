@@ -405,7 +405,7 @@ class DataParser:
             cell_type = self._sheet.cell(self._row, id_col).ctype
             info_id = self._sheet.cell_value(self._row, id_col)
             info_id = self.convert_field_value(field_type, info_id, cell_type)
-            if info_id == "":
+            if info_id is None:
                 LOG_WARN("%d is None", self._row)
                 continue
             item = item_array.items[info_id]
